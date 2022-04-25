@@ -49,11 +49,20 @@ A drawback of **Set Pooling Methods** is that they do not exploit the structure 
 
 A strategy for taking **graph structure** into account is performing **graph coarsening** / **clustering** while pooling node representations.
 
-Lets say we want to group nodes into $c$ clusters. We will use a clustering function $$ f_c: \mathcal{G} \times \mathbb{R}^{\vert V \vert \times d} \rightarrow \mathbb{R}^{\vert V \vert \times c} $$ that maps nodes to an assignment matrix over $c$ clusters.
+Lets say we want to group nodes into $c$ clusters. We will use a clustering function 
 
-Suppose we have a cluster assignment matrix $$ \mathbf{S} = f_c(\mathcal{G}, \mathbf{Z}) \in \mathbb{R}^{\vert V \vert \times c} $$ where $\mathbf{S}_{v, i}$ denotes how likely node $v$ is in cluster $i$
+$$ f_c: \mathcal{G} \times \mathbb{R}^{\vert V \vert \times d} \rightarrow \mathbb{R}^{\vert V \vert \times c} $$ 
+
+that maps nodes to an assignment matrix over $c$ clusters.
+
+Suppose we have a cluster assignment matrix 
+
+$$ \mathbf{S} = f_c(\mathcal{G}, \mathbf{Z}) \in \mathbb{R}^{\vert V \vert \times c} $$ 
+
+where $\mathbf{S}_{v, i}$ denotes how likely node $v$ is in cluster $i$
 
 We will use $\mathbf{S}$ to coarsen the graph. Specifically, we will compute the coarsened adjacency matrix
+
 $$ \mathbf{\hat{A}} = \mathbf{S}^T \mathbf{A} \mathbf{S} \in \mathbb{R}^{c\times c} $$,
 
 and a new matrix of embeddings
@@ -89,6 +98,7 @@ DiffPool consists of 2 phases: **Pooling nodes** and **Learning cluster assignme
 Denote the learned cluster assignment matrix at layer $l$ as $\mathbf{S}^{(l)} \in \mathbb{R}^{n_l \times n_{l + 1}}$, where $n_l$ is the number of nodes at layer $l$ and $n_{l + 1}$ is the number of nodes at layer $l + 1$. Denote the adjacency matrix and node embedding matrix at layer $l$ as $\mathbf{A}^{(l)} \in \mathbb{R}^{n_l \times n_l}$ and $\mathbf{Z}^{(l)} \in \mathbb{R}^{n_l \times d}$ respectively. DiffPool coarsens the graph at layer $l$ by the following equations:
 
 $$ \mathbf{A}^{(l + 1)} = \mathbf{S}^{(l)^T} \mathbf{A}^{(l)} \mathbf{S}^{(l)} \in \mathbb{R}^{n_{l + 1} \times n_{l + 1}} $$
+
 $$ \mathbf{X}^{(l + 1)}  = \mathbf{S}^{(l)} \mathbf{Z}^{(l)} \in \mathbb{R}^{n_{l + 1} \times d} $$
 
 $\mathbf{X}^{(l + 1)}$ and $\mathbf{A}^{(l + 1)}$ represent the node features and weighted adjacency matrix of the coarsened graph, which is the graph at layer $l + 1$. These two matrices will be used at inputs to layer $l + 1$.
@@ -116,17 +126,20 @@ At layer $0$, the input will be the original graph's adjacency matrix $\mathbf{A
 > 
 > *Proof*. <br/>
 > Let 
+>
 > $$ \begin{split}
 (\mathbf{S}, \mathbf{Z}) & = \text{GNN}(\mathbf{A}, \mathbf{X}) \\
 (\mathbf{S}_P, \mathbf{Z}_P) & = \text{GNN}(P \mathbf{A} P^T, P \mathbf{X}) \\
 (\mathbf{\hat{A}}, \mathbf{\hat{X}}) & = \text{DiffPool}(\mathbf{A}, \mathbf{Z}) \\
 (\mathbf{\hat{A}}_P, \mathbf{\hat{X}}_P) & = \text{DiffPool}(P \mathbf{A} P^T, P \mathbf{Z}) \\
 \end{split} $$
+>
 > In order to prove the the permutation invariance of $\text{DiffPool}$, we will prove that $\mathbf{S} = \mathbf{S}_P$, $\mathbf{Z} = \mathbf{Z}_P$, $\mathbf{\hat{A}} = \mathbf{\hat{A}}_P$, and $\mathbf{\hat{X}} = \mathbf{\hat{X}}_P$
 >
 > Since $\text{GNN}(\mathbf{A}, \mathbf{X}) = \text{GNN}(P\mathbf{A} P^T, P \mathbf{X})$, $\mathbf{S} = \mathbf{S}_P$ and $\mathbf{Z} = \mathbf{Z}_P$.
 >
 > We have
+>
 > $$ \begin{split}
 \mathbf{\hat{A}}_P & = (P \mathbf{S})^T(P\mathbf{A} P^T)(P\mathbf{S}) \\
 & = \mathbf{S}^T(P^TP)\mathbf{A}(P^TP)\mathbf{S} \\
@@ -147,6 +160,7 @@ In pratice training the pooling GNN $(\text{GNN}_{pool})$
 based only on gradient in the graph classification task can be difficult, since optimizing the $\text{GNN}_{pool}$ will now become a non-convex optimization problem. In order to address this problem, the authors of DiffPool train $\text{GNN}_{pool}$ with an auxiliary link prediction objective, which tells us that nearby nodes should be pooled together. Specifically, at each layer $l$, the following loss function will be minimized: 
 
 $$ L_{LP} =  \Vert \mathbf{A}^{(l)} - \mathbf{S}^{(l)} \mathbf{S}^{(l)^T} \Vert _F $$ 
+
 where $\Vert . \Vert _F$ denotes the Forbenius norm.
 
 > **Intuition of $L_{LP}$**
@@ -162,6 +176,7 @@ where $\Vert . \Vert _F$ denotes the Forbenius norm.
 Moreover, the cluster assignment matrix $\mathbf{S}^{(l)}$ learned by the pooling GNN should have row vectors that are close to one-hot vectors, so that the node assignment can be clearly defined. Therefore, the authors of DiffPool regularize the entropy of the cluster assignment by minimizing the following equation:
 
 $$ L_E = \frac{1}{\vert V \vert} \sum_{i \in V}H(\mathbf{S}^{(l)}_i) $$
+
 where $H$ is the entropy function.
 
 > **Intuition of $L_E$**
@@ -193,6 +208,7 @@ Denote the graph's adjacency matrix and node features at gPool layer $l$ as $\ma
 **Projection**
 
 gPool layer $l$ learns a projection vector $\mathbf{p}^{(l)} \in \mathbb{R}^{n_l \times 1}$ to and projects node features $\mathbf{X}^{(l)}$  to 1 dimension: 
+
 $$ \mathbf{y} = \mathbf{X}^{(l)} \frac{\mathbf{p}^{(l)}}{\Vert \mathbf{p}^{(l)} \Vert} \in \mathbb{R}^{n_l \times 1}, $$
 
 where $\mathbf{y}_i \in \mathbb{R}$ is node $i$'s score and it represents how much information of node $i$ can be retained when we project node $i$'s features onto the dimension of $\mathbf{p}^{(l)}$
