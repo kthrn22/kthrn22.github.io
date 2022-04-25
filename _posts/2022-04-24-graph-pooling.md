@@ -14,9 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-$$ \nabla_\boldsymbol{x} J(\boldsymbol{x}) $$
-
-The goal **Set Pooling** is to map a set of node embeddings $$\{\bold z_1, \dots, \bold z_{|V|}\}$$ to an embedding that represents the entire graph, $$\bold z_G$$.
+The goal **Set Pooling** is to map a set of node embeddings $\{\boldsymbol{z}_1, \dots, \bold z_{\vert V \vert}\}$$ to an embedding that represents the entire graph, $\boldsymbol{z}_{G}$.
 
 ## Global pooling
 
