@@ -5,7 +5,7 @@ tags:
   - Pooling
 ---
 
-In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\boldsymbol{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
+In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\mathbf{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
 
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
@@ -14,7 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-The goal **Set Pooling** is to map a set of node embeddings $\{\boldsymbol{z}_1, \dots, \boldsymbol{z}_{\vert V \vert}\}$ to an embedding that represents the entire graph, $\boldsymbol{z}_{G}$.
+The goal **Set Pooling** is to map a set of node embeddings $\{\mathbf{z}_1, \dots, \mathbf{z}_{\vert V \vert}\}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
 
 ## Global pooling
 
@@ -32,44 +32,44 @@ Set2Set iterates for $t = 1, \dots, T$ steps <br/>
 
 At step $t$:
 * Compute the query vector for attention at iteration $t$
-$$\boldsymbol{q}_t = \text{LSTM}(\boldsymbol{o}_{t - 1}, \boldsymbol{q}_{t - 1})$$
-* Compute the attention score over each node using the attention function $f_a: \mathbb{R}^d \times \mathbb{R}^d \rightarrow \R$
-$$e_{v, t} = f_a(\bold z_v, \bold q_t), \forall v \in V$$ 
+$$ \mathbf{q}_t = \text{LSTM}(\mathbf{o}_{t - 1}, \mathbf{q}_{t - 1}) $$
+* Compute the attention score over each node using the attention function $f_a: \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R}$
+$$ e_{v, t} = f_a(\mathbf{z}_v, \mathbf{q}_t), \forall v \in V $$ 
 * Normalize the attention score to obtain the attention weights
-$$\alpha_{v, t} = \frac{\exp(e_{v, t})}{\sum_{u \in V}exp(e_{u, t})}$$
+$$ \alpha_{v, t} = \frac{\exp(e_{v, t})}{\sum_{u \in V}exp(e_{u, t})} $$
 * Compute the weighted sum of node embeddings, the weight for each node's embedding is its attention weight computed in the previous step
-$$\bold o_t = \sum_{v \in V} \alpha_{v, t}\bold z_v, \text{ where } \bold z_v \text{ is node } v \text{'s embedding}$$ 
+$$ \mathbf{o}_t = \sum_{v \in V} \alpha_{v, t}\mathbf{z}_v, \text{ where } \mathbf{z}_v \text{ is node } v \text{'s embedding} $$ 
 
 After $T$ iterations, compute the final embedding of the graph by the following equation:
 
-$$ \bold z_G = \text{CONCAT}(\bold o_1, \dots, \bold o_T)$$
+$$ \mathbf{z}_G = \text{CONCAT}(\mathbf{o}_1, \dots, \mathbf{o}_T) $$
   
 # Graph Coarsening Methods
 A drawback of **Set Pooling Methods** is that they do not exploit the structure of the graph (They compute the graph embedding solely based on node embeddings). 
 
 A strategy for taking **graph structure** into account is performing **graph coarsening** / **clustering** while pooling node representations.
 
-Lets say we want to group nodes into $c$ clusters. We will use a clustering function $$f_c: \mathcal{G} \times \R^{|V| \times d} \rightarrow \R^{|V| \times c}$$ that maps nodes to an assignment matrix over $c$ clusters.
+Lets say we want to group nodes into $c$ clusters. We will use a clustering function $$ f_c: \mathcal{G} \times \mathbb{R}^{\vert V \vert \times d} \rightarrow \mathbb{R}^{\vert V \vert \times c} $$ that maps nodes to an assignment matrix over $c$ clusters.
 
-Suppose we have a cluster assignment matrix $$\bold S = f_c(\mathcal{G}, \bold Z) \in \R^{|V| \times c}$$ where $\bold S_{v, i}$ denotes how likely node $v$ is in cluster $i$
+Suppose we have a cluster assignment matrix $$ \mathbf{S} = f_c(\mathcal{G}, \mathbf{Z}) \in \mathbb{R}^{\vert V \vert \times c} $$ where $\mathbf{S}_{v, i}$ denotes how likely node $v$ is in cluster $i$
 
-We will use $\bold S$ to coarsen the graph. Specifically, we will compute the coarsened adjacency matrix
-$$ \bold{\hat{A}} = \bold S^T \bold A \bold S \in \R^{c\times c} $$,
+We will use $\mathbf{S}$ to coarsen the graph. Specifically, we will compute the coarsened adjacency matrix
+$$ \mathbf{\hat{A}} = \mathbf{S}^T \mathbf{A} \mathbf{S} \in \mathbb{R}^{c\times c} $$,
 
 and a new matrix of embeddings
 
-$$ \bold{\hat{X}} = \bold S^T \bold Z \in \R^{c \times d}$$
+$$ \mathbf{\hat{X}} = \mathbf{S}^T \mathbf{Z} \in \mathbb{R}^{c \times d} $$
 
-> **Intuition of $\bold{\hat{A}}$ and $\bold{\hat{X}}$** <br/> 
+> **Intuition of $\mathbf{\hat{A}}$ and $\mathbf{\hat{X}}$** <br/> 
 For $i, j \leq c$
 >
-> $$\bold{\hat{A}}_{i, j} = \sum_{v \in V} \sum_{u \in N(v)} \bold S_{v, i} \bold S_{u,j} $$ 
+> $$ \mathbf{\hat{A}}_{i, j} = \sum_{v \in V} \sum_{u \in N(v)} \mathbf{S}_{v, i} \mathbf{S}_{u,j} $$ 
 > 
-> Therefore, $\bold{\hat{A}}_{i, j} \in \R$ represents the weight of connections (edges) between cluster $i$ and cluster $j$. In other words, $\bold{\hat{A}}$ represents the strength of connections between each pair of $c$ clusters. ($\bold{\hat{A}}$ is the weighted adjacency matrix of the coarsened graph)
+> Therefore, $\mathbf{\hat{A}}_{i, j} \in \mathbb{R}$ represents the weight of connections (edges) between cluster $i$ and cluster $j$. In other words, $\mathbf{\hat{A}}$ represents the strength of connections between each pair of $c$ clusters. ($\mathbf{\hat{A}}$ is the weighted adjacency matrix of the coarsened graph)
 > 
-> $\bold{\hat{X}}$ takes in the node embeddings, $\bold Z$, aggregrates them base on the assignment matrix $\bold S$, and outputs pooled features for clusters (the $i$-th row of $\bold{\hat{X}}$ represents the features of cluster $i$).
+> $\mathbf{\hat{X}}$ takes in the node embeddings, $\mathbf{Z}$, aggregrates them base on the assignment matrix $\mathbf{S}$, and outputs pooled features for clusters (the $i$-th row of $\mathbf{\hat{X}}$ represents the features of cluster $i$).
 
-After grouping the nodes into $c$ clusters, we will obtain a coarsened graph that has $c$ nodes (we just reduced the number of nodes to $c$ !!), which is represented by the weighted adjacency matrix $\bold{\hat{A}}$, and new node features $\bold X$. Then we can apply GNN on this coarsened graph and repeat the whole process for $T$ times. Thus, after each iteration, the graph's size will be reduced, and we will obtain the **original graph's embedding** using node embeddings of the final coarsened graph. 
+After grouping the nodes into $c$ clusters, we will obtain a coarsened graph that has $c$ nodes (we just reduced the number of nodes to $c$ !!), which is represented by the weighted adjacency matrix $\mathbf{\hat{A}}$, and new node features $\mathbf{X}$. Then we can apply GNN on this coarsened graph and repeat the whole process for $T$ times. Thus, after each iteration, the graph's size will be reduced, and we will obtain the **original graph's embedding** using node embeddings of the final coarsened graph. 
 
 ## DiffPool
 Ying et al. [Hierarchical Graph Representation Learning with Differentiable Pooling](https://proceedings.neurips.cc/paper/2018/file/e77dbaf6759253c7c6d0efc5690369c7-Paper.pdf), NeurIPS 2018
@@ -86,58 +86,58 @@ DiffPool consists of 2 phases: **Pooling nodes** and **Learning cluster assignme
 
 **Pooling nodes**
 
-Denote the learned cluster assignment matrix at layer $l$ as $\bold S^{(l)} \in \R^{n_l \times n_{l + 1}}$, where $n_l$ is the number of nodes at layer $l$ and $n_{l + 1}$ is the number of nodes at layer $l + 1$. Denote the adjacency matrix and node embedding matrix at layer $l$ as $\bold A^{(l)} \in \R^{n_l \times n_l}$ and $\bold Z^{(l)} \in \R^{n_l \times d}$ respectively. DiffPool coarsens the graph at layer $l$ by the following equations:
+Denote the learned cluster assignment matrix at layer $l$ as $\mathbf{S}^{(l)} \in \mathbb{R}^{n_l \times n_{l + 1}}$, where $n_l$ is the number of nodes at layer $l$ and $n_{l + 1}$ is the number of nodes at layer $l + 1$. Denote the adjacency matrix and node embedding matrix at layer $l$ as $\mathbf{A}^{(l)} \in \mathbb{R}^{n_l \times n_l}$ and $\mathbf{Z}^{(l)} \in \mathbb{R}^{n_l \times d}$ respectively. DiffPool coarsens the graph at layer $l$ by the following equations:
 
-$$ \bold A^{(l + 1)} = \bold S^{(l)^T} \bold A^{(l)} \bold S^{(l)} \in \R^{n_{l + 1} \times n_{l + 1}}$$
-$$\bold X^{(l + 1)}  = \bold S^{(l)} \bold Z^{(l)} \in \R^{n_{l + 1} \times d}$$
+$$ \mathbf{A}^{(l + 1)} = \mathbf{S}^{(l)^T} \mathbf{A}^{(l)} \mathbf{S}^{(l)} \in \mathbb{R}^{n_{l + 1} \times n_{l + 1}} $$
+$$ \mathbf{X}^{(l + 1)}  = \mathbf{S}^{(l)} \mathbf{Z}^{(l)} \in \mathbb{R}^{n_{l + 1} \times d} $$
 
-$\bold X^{(l + 1)}$ and $\bold A^{(l + 1)}$ represent the node features and weighted adjacency matrix of the coarsened graph, which is the graph at layer $l + 1$. These two matrices will be used at inputs to layer $l + 1$.
+$\mathbf{X}^{(l + 1)}$ and $\mathbf{A}^{(l + 1)}$ represent the node features and weighted adjacency matrix of the coarsened graph, which is the graph at layer $l + 1$. These two matrices will be used at inputs to layer $l + 1$.
 
 **Learning cluster assignment matrix**
 
-At layer $l$, given the coarsened adjacency matrix $\bold A^{(l)}$ and node features $\bold X^{(l)}$, how can we learn the assignment matrix $\bold S^{(l)}$ and the node embeddings $\bold Z^{(l)}$?
+At layer $l$, given the coarsened adjacency matrix $\mathbf{A}^{(l)}$ and node features $\mathbf{X}^{(l)}$, how can we learn the assignment matrix $\mathbf{S}^{(l)}$ and the node embeddings $\mathbf{Z}^{(l)}$?
 
-DiffPool uses 2 seperate GNNs to learn $\bold S^{(l)}$ and $\bold Z^{(l)}$, which is $\text{GNN}^{(l)}_{pool}$ and $\text{GNN}^{(l)}_{embed}$ respectively:
+DiffPool uses 2 seperate GNNs to learn $\mathbf{S}^{(l)}$ and $\mathbf{Z}^{(l)}$, which is $\text{GNN}^{(l)}_{pool}$ and $\text{GNN}^{(l)}_{embed}$ respectively:
 
-$$ \bold Z^{(l)} = \text{GNN}^{(l)}_{embed} (\bold A^{(l)}, \bold X^{(l)})$$
+$$ \mathbf{Z}^{(l)} = \text{GNN}^{(l)}_{embed} (\mathbf{A}^{(l)}, \mathbf{X}^{(l)}) $$
 
-$\text{GNN}^{(l)}_{embed}$ uses the adjacency matrix $\bold A^{(l)}$ and node features $\bold X^{(l)}$ to generate node embeddings $\bold Z^{(l)}$
+$\text{GNN}^{(l)}_{embed}$ uses the adjacency matrix $\mathbf{A}^{(l)}$ and node features $\mathbf{X}^{(l)}$ to generate node embeddings $\mathbf{Z}^{(l)}$
 
-$$\bold S^{(l)} = \text{softmax}(\text{GNN}^{(l)}_{embed}(\bold A^{(l)}, \bold S^{(l)})) $$
+$$ \mathbf{S}^{(l)} = \text{softmax}(\text{GNN}^{(l)}_{embed}(\mathbf{A}^{(l)}, \mathbf{S}^{(l)})) $$
 
-where $\text{softmax}$ is applied in the row-wise way, since $\bold S^{(l)}$ represents the probabilistic assignment for each node.  
+where $\text{softmax}$ is applied in the row-wise way, since $\mathbf{S}^{(l)}$ represents the probabilistic assignment for each node.  
 
-At layer $0$, the input will be the original graph's adjacency matrix $\bold A$ and node features $\bold X$. At the second to last layer $L - 1$, we set the cluster assignment matrix $\bold S^{(L - 1)}$ to a vector of $1$'s, meaning that the nodes at layer $L - 1$ will be assigned into a single cluster, and layer $L$ will generate a final embedding vector, which represents the **original graph's embedding**. 
+At layer $0$, the input will be the original graph's adjacency matrix $\mathbf{A}$ and node features $\mathbf{X}$. At the second to last layer $L - 1$, we set the cluster assignment matrix $\mathbf{S}^{(L - 1)}$ to a vector of $1$'s, meaning that the nodes at layer $L - 1$ will be assigned into a single cluster, and layer $L$ will generate a final embedding vector, which represents the **original graph's embedding**. 
 
 > **Permutation Invariance**<br/>
 > In order to be used in graph classification, DiffPool should be permutation invariant.
 >
-> ***Proposition***. Let $P$ be any permutation matrix. Then $\text{DiffPool}(\bold A, \bold Z) = \text{DiffPool}(P\bold A P^T, P \bold Z)$ as long as $\text{GNN}(\bold A, \bold X) = \text{GNN}(P\bold A P^T, P \bold X)$. ($\text{GNN}$ refers to the GNN module used in DiffPool)
+> ***Proposition***. Let $P$ be any permutation matrix. Then $\text{DiffPool}(\mathbf{A}, \mathbf{Z}) = \text{DiffPool}(P\mathbf{A} P^T, P \mathbf{Z})$ as long as $\text{GNN}(\mathbf{A}, \mathbf{X}) = \text{GNN}(P\mathbf{A} P^T, P \mathbf{X})$. ($\text{GNN}$ refers to the GNN module used in DiffPool)
 > 
 > *Proof*. <br/>
 > Let 
 > $$ \begin{split}
-(\bold S, \bold Z) & = \text{GNN}(\bold A, \bold X) \\
-(\bold S_P, \bold Z_P) & = \text{GNN}(P \bold A P^T, P \bold X) \\
-(\bold{\hat{A}}, \bold{\hat{X}}) & = \text{DiffPool}(\bold A, \bold Z) \\
-(\bold{\hat{A}}_P, \bold{\hat{X}}_P) & = \text{DiffPool}(P \bold A P^T, P \bold Z) \\
-\end{split}$$
-> In order to prove the the permutation invariance of $\text{DiffPool}$, we will prove that $\bold S = \bold S_P$, $\bold Z = \bold Z_P$, $\bold{\hat{A}} = \bold{\hat{A}}_P$, and $\bold{\hat{X}} = \bold{\hat{X}}_P$
+(\mathbf{S}, \mathbf{Z}) & = \text{GNN}(\mathbf{A}, \mathbf{X}) \\
+(\mathbf{S}_P, \mathbf{Z}_P) & = \text{GNN}(P \mathbf{A} P^T, P \mathbf{X}) \\
+(\mathbf{\hat{A}}, \mathbf{\hat{X}}) & = \text{DiffPool}(\mathbf{A}, \mathbf{Z}) \\
+(\mathbf{\hat{A}}_P, \mathbf{\hat{X}}_P) & = \text{DiffPool}(P \mathbf{A} P^T, P \mathbf{Z}) \\
+\end{split} $$
+> In order to prove the the permutation invariance of $\text{DiffPool}$, we will prove that $\mathbf{S} = \mathbf{S}_P$, $\mathbf{Z} = \mathbf{Z}_P$, $\mathbf{\hat{A}} = \mathbf{\hat{A}}_P$, and $\mathbf{\hat{X}} = \mathbf{\hat{X}}_P$
 >
-> Since $\text{GNN}(\bold A, \bold X) = \text{GNN}(P\bold A P^T, P \bold X)$, $\bold S = \bold S_P$ and $\bold Z = \bold Z_P$.
+> Since $\text{GNN}(\mathbf{A}, \mathbf{X}) = \text{GNN}(P\mathbf{A} P^T, P \mathbf{X})$, $\mathbf{S} = \mathbf{S}_P$ and $\mathbf{Z} = \mathbf{Z}_P$.
 >
 > We have
 > $$ \begin{split}
-\bold{\hat{A}}_P & = (P \bold S)^T(P\bold A P^T)(P\bold S) \\
-& = \bold S^T(P^TP)\bold A(P^TP)\bold S \\
-& = \bold S^T \bold A \bold S ~~~\text{(since } P^TP = I)\\
-& = \bold{\hat{A}} \\
+\mathbf{\hat{A}}_P & = (P \mathbf{S})^T(P\mathbf{A} P^T)(P\mathbf{S}) \\
+& = \mathbf{S}^T(P^TP)\mathbf{A}(P^TP)\mathbf{S} \\
+& = \mathbf{S}^T \mathbf{A} \mathbf{S} \text{ (since } P^TP = I)\\
+& = \mathbf{\hat{A}} \\
 \\
-\bold{\hat{X}}_P & = (P\bold S)^T(P \bold Z) \\
-& = \bold S^T(P^TP)\bold Z \\
-& = \bold S^T \bold Z ~~~\text{(since } P^TP = I)\\
-& = \bold{\hat{X}}
-\end{split}$$
+\mathbf{\hat{X}}_P & = (P\mathbf{S})^T(P \mathbf{Z}) \\
+& = \mathbf{S}^T(P^TP)\mathbf{Z} \\
+& = \mathbf{S}^T \mathbf{Z} \text{ (since } P^TP = I)\\
+& = \mathbf{\hat{X}}
+\end{split} $$
 > 
 > Thus, the proposition is proved. 
 
@@ -146,23 +146,22 @@ At layer $0$, the input will be the original graph's adjacency matrix $\bold A$ 
 In pratice training the pooling GNN $(\text{GNN}_{pool})$
 based only on gradient in the graph classification task can be difficult, since optimizing the $\text{GNN}_{pool}$ will now become a non-convex optimization problem. In order to address this problem, the authors of DiffPool train $\text{GNN}_{pool}$ with an auxiliary link prediction objective, which tells us that nearby nodes should be pooled together. Specifically, at each layer $l$, the following loss function will be minimized: 
 
-$$L_{LP} = ||\bold A^{(l)} - \bold S^{(l)} \bold S^{(l)^T}||_
-$$ L_{LP} =  ||\bold A^{(l)} - \bold S^{(l)} \bold S^{(l)^T} ||_F$$ 
-where $||.||_F$ denotes the Forbenius norm.
+$$ L_{LP} =  \Vert \mathbf{A}^{(l)} - \mathbf{S}^{(l)} \mathbf{S}^{(l)^T} \Vert _F $$ 
+where $\Vert . \Vert _F$ denotes the Forbenius norm.
 
 > **Intuition of $L_{LP}$**
 > 
-> At each layer $l$, let $\bold Q = \bold A^{(l)} - \bold S^{(l)} \bold S^{(l)^T}$, then $L_{LP} = \sqrt{\sum_{i \in V} \sum_{j \in V} \bold Q_{ij}^2}$  
+> At each layer $l$, let $\mathbf{Q} = \mathbf{A}^{(l)} - \mathbf{S}^{(l)} \mathbf{S}^{(l)^T}$, then $L_{LP} = \sqrt{\sum_{i \in V} \sum_{j \in V} \mathbf{Q}_{ij}^2}$  
 >
-> We have $\bold Q_{ij} = \bold A^{(l)}_{ij} - \bold S^{(l)}_i \bold S^{(l)^T}_j$, where $\bold S^{(l)}_i$ is the $i$-th row of $\bold S^{(l)}$.
+> We have $\mathbf{Q}_{ij} = \mathbf{A}^{(l)}_{ij} - \mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$, where $\mathbf{S}^{(l)}_i$ is the $i$-th row of $\mathbf{S}^{(l)}$.
 >
-> Thus, minimizing $L_{LP}$ means minimizing $\sum_{i \in V} \sum_{j \in V} (\bold A^{(l)}_{ij} - \bold S^{(l)}_i \bold S^{(l)^T}_j)^2 $. 
+> Thus, minimizing $L_{LP}$ means minimizing $\sum_{i \in V} \sum_{j \in V} (\mathbf{A}^{(l)}_{ij} - \mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j)^2 $. 
 >
-> If $i$ and $j$ are nearby then both $\bold A^{(l)}_{ij}$ and $\bold S^{(l)}_i \bold S^{(l)^T}_j$ will be large. Similarly, if $i$ and $j$ are not nearby then both $\bold A^{(l)}_{ij}$ and $\bold S^{(l)}_i \bold S^{(l)^T}_j$ will be small. Thus minimizing $L_{LP}$ will force nearby nodes being pooled together. 
+> If $i$ and $j$ are nearby then both $\mathbf{A}^{(l)}_{ij}$ and $\mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$ will be large. Similarly, if $i$ and $j$ are not nearby then both $\mathbf{A}^{(l)}_{ij}$ and $\mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$ will be small. Thus minimizing $L_{LP}$ will force nearby nodes being pooled together. 
 
-Moreover, the cluster assignment matrix $\bold S^{(l)}$ learned by the pooling GNN should have row vectors that are close to one-hot vectors, so that the node assignment can be clearly defined. Therefore, the authors of DiffPool regularize the entropy of the cluster assignment by minimizing the following equation:
+Moreover, the cluster assignment matrix $\mathbf{S}^{(l)}$ learned by the pooling GNN should have row vectors that are close to one-hot vectors, so that the node assignment can be clearly defined. Therefore, the authors of DiffPool regularize the entropy of the cluster assignment by minimizing the following equation:
 
-$$L_E = \frac{1}{|V|} \sum_{i \in V}H(\bold S^{(l)}_i) $$
+$$ L_E = \frac{1}{\vert V \vert} \sum_{i \in V}H(\mathbf{S}^{(l)}_i) $$
 where $H$ is the entropy function.
 
 > **Intuition of $L_E$**
@@ -189,37 +188,37 @@ H. Gao, S. Ji. [Graph U-Nets](http://proceedings.mlr.press/v97/gao19a/gao19a.pdf
 gPool layer selects a new subset of nodes of the original graph to form a new and smaller graph. gPool consists of 3 phases: **Projection**, **Node Selection**, and **Gate**
 
 Denote the number of nodes in the graph at layer $l$ as $n_l$.
-Denote the graph's adjacency matrix and node features at gPool layer $l$ as $\bold A^{(l)} \in \R^{n_l \times n_l}$ and $\bold X^{(l)} \in \R^{n_l \times d}$ respectively.
+Denote the graph's adjacency matrix and node features at gPool layer $l$ as $\mathbf{A}^{(l)} \in \mathbb{R}^{n_l \times n_l}$ and $\mathbf{X}^{(l)} \in \mathbb{R}^{n_l \times d}$ respectively.
 
 **Projection**
 
-gPool layer $l$ learns a projection vector $\bold p^{(l)} \in \R^{n_l \times 1}$ to and projects node features $\bold X^{(l)}$  to 1 dimension: 
-$$ \bold y = \bold X^{(l)} \frac{\bold p^{(l)}}{|| \bold p^{(l)}||} \in \R^{n_l \times 1},$$
+gPool layer $l$ learns a projection vector $\mathbf{p}^{(l)} \in \mathbb{R}^{n_l \times 1}$ to and projects node features $\mathbf{X}^{(l)}$  to 1 dimension: 
+$$ \mathbf{y} = \mathbf{X}^{(l)} \frac{\mathbf{p}^{(l)}}{\Vert \mathbf{p}^{(l)} \Vert} \in \mathbb{R}^{n_l \times 1}, $$
 
-where $\bold y_i \in \R$ is node $i$'s score and it represents how much information of node $i$ can be retained when we project node $i$'s features onto the dimension of $\bold p^{(l)}$
+where $\mathbf{y}_i \in \mathbb{R}$ is node $i$'s score and it represents how much information of node $i$ can be retained when we project node $i$'s features onto the dimension of $\mathbf{p}^{(l)}$
 
 **Node Selection**
 
 Since we want to preserve as much information as possible, we select $k$ nodes with the highest score and record their indices:
 
-$$ \text{idx} = \text{rank}(\bold y, k)$$
+$$ \text{idx} = \text{rank}(\mathbf{y}, k) $$
 
-After selecting $k$ nodes, we obtain a new graph represented by a new adjacency matrix $\bold{\hat{A}}$ and new node features $\bold{\hat{X}}$. Specifically, based on the indices of selected nodes, gPool extracts some rows and columns of $\bold{A}$ to form $\bold{\hat{A}}$ and extracts some rows of $\bold{X}$ to form $\bold{\hat{X}}$:
+After selecting $k$ nodes, we obtain a new graph represented by a new adjacency matrix $\mathbf{\hat{A}}$ and new node features $\mathbf{\hat{X}}$. Specifically, based on the indices of selected nodes, gPool extracts some rows and columns of $\mathbf{A}$ to form $\mathbf{\hat{A}}$ and extracts some rows of $\mathbf{X}$ to form $\mathbf{\hat{X}}$:
 
 $$ \begin{split}
-& \bold{A}^{(l + 1)} = \bold{\hat{A}} = \bold A^{(l)}(\text{idx}, \text{idx}) \in \R^{k \times k} \\
-& \bold{\hat{X}} = \bold X^{(l)}(\text{idx}, :) \in \R^{k \times d}
+& \mathbf{A}^{(l + 1)} = \mathbf{\hat{A}} = \mathbf{A}^{(l)}(\text{idx}, \text{idx}) \in \mathbb{R}^{k \times k} \\
+& \mathbf{\hat{X}} = \mathbf{X}^{(l)}(\text{idx}, :) \in \mathbb{R}^{k \times d}
 \end{split} $$
 
 **Gate**
 
 In order to control the information flow, gPool applies gate operation:
 
-$$\bold{\hat{y}} = \sigma(\bold y(\text{idx})), \text{where } \sigma(.) \text{ is the sigmoid function} $$ 
+$$ \mathbf{\hat{y}} = \sigma(\mathbf{y}(\text{idx})), \text{where } \sigma(.) \text{ is the sigmoid function} $$ 
 
-$$ \bold{X}^{(l + 1)} = \bold{\hat{X}} \odot (\bold{\hat{y}} \bold 1_d^T), \text{where } \odot \text{ is the element-wise matrix product} $$
+$$ \mathbf{X}^{(l + 1)} = \mathbf{\hat{X}} \odot (\mathbf{\hat{y}} \mathbf{1}_d^T), \text{where } \odot \text{ is the element-wise matrix product} $$
 
-Applying the gate operator, gPool makes the projection vector $\bold p^{(l)}$ trainable by back-propagation.
+Applying the gate operator, gPool makes the projection vector $\mathbf{p}^{(l)}$ trainable by back-propagation.
 
 >**Graph Connectivity Problem**
 >
@@ -238,7 +237,7 @@ Applying the gate operator, gPool makes the projection vector $\bold p^{(l)}$ tr
 > In our new graph, the nodes are isolated.
 > For GNN modules that aggregrate information from neighbor nodes, this could be a problem, since isolated nodes do not have neighbors to provide them information.
 > 
-> The authors of gPool solve this problem by using the power of the adjacency matrix. Specifically, in the **Node Selection** phase, instead of extracting rows and columns of the adjacency matrix $\bold A$ $(\bold{\hat{A}} = \bold A(\text{idx}, \text{idx}))$, we can perform extraction from $\bold A^m$, i.e $ \bold{\hat{A}} = \bold A^m(\text{idx}, \text{idx})$. $\bold A^m$ builds connections between nodes whose distances are less than or equal to $m$, so using $\bold A^m$ can increase the connectivity of the new graph. 
+> The authors of gPool solve this problem by using the power of the adjacency matrix. Specifically, in the **Node Selection** phase, instead of extracting rows and columns of the adjacency matrix $\mathbf{A}$ ($\mathbf{\hat{A}} = \mathbf{A}(\text{idx}, \text{idx})$), we can perform extraction from $\mathbf{A}^m$, i.e $ \mathbf{\hat{A}} = \mathbf{A}^m(\text{idx}, \text{idx})$. $\mathbf{A}^m$ builds connections between nodes whose distances are less than or equal to $m$, so using $\mathbf{A}^m$ can increase the connectivity of the new graph. 
 
 # References
 O. Vinyals, S. Bengio, and M. Kudlur. [Order matters: Sequence to sequence for sets](https://arxiv.org/pdf/1511.06391.pdf). In *ICLR*, 2015.
