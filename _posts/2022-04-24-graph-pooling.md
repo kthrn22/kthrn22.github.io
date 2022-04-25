@@ -116,7 +116,7 @@ $\mathbf{X}^{(l + 1)}$ and $\mathbf{A}^{(l + 1)}$ represent the node features an
 
 At layer $l$, given the coarsened adjacency matrix $\mathbf{A}^{(l)}$ and node features $\mathbf{X}^{(l)}$, how can we learn the assignment matrix $\mathbf{S}^{(l)}$ and the node embeddings $\mathbf{Z}^{(l)}$?
 
-DiffPool uses 2 seperate GNNs to learn $\mathbf{S}^{(l)}$ and $\mathbf{Z}^{(l)}$, which is $\text{GNN}^{(l)}_{pool}$ and $\text{GNN}^{(l)}_{embed}$ respectively:
+DiffPool uses 2 seperate GNNs to learn $$\mathbf{S}^{(l)}$$ and $$\mathbf{Z}^{(l)}$$, which is $$\text{GNN}^{(l)}_{pool}$$ and $$\text{GNN}^{(l)}_{embed}$$ respectively:
 
 $$ \mathbf{Z}^{(l)} = \text{GNN}^{(l)}_{embed} (\mathbf{A}^{(l)}, \mathbf{X}^{(l)}) $$
 
