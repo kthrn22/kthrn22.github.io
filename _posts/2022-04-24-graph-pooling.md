@@ -5,7 +5,7 @@ tags:
   - Pooling
 ---
 
-In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\boldsymbol{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\boldsymbol{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
+In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\boldsymbol{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
 
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
@@ -14,7 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-The goal **Set Pooling** is to map a set of node embeddings $ \{\boldsymbol{z}_1, \dots, \boldsymbol{z}_{\vert V \vert}\} $ to an embedding that represents the entire graph, $ \boldsymbol{z}_{G} $.
+The goal **Set Pooling** is to map a set of node embeddings $\{\boldsymbol{z}_1, \dots, \boldsymbol{z}_{\vert V \vert}\}$ to an embedding that represents the entire graph, $\boldsymbol{z}_{G}$.
 
 ## Global pooling
 
@@ -32,7 +32,7 @@ Set2Set iterates for $t = 1, \dots, T$ steps <br/>
 
 At step $t$:
 * Compute the query vector for attention at iteration $t$
-$$\boldsymbol{q}_t = \text{LSTM}(\boldsymbol{o}_{t - 1}, \boldsybmbol{q}_{t - 1})$$
+$$\boldsymbol{q}_t = \text{LSTM}(\boldsymbol{o}_{t - 1}, \boldsymbol{q}_{t - 1})$$
 * Compute the attention score over each node using the attention function $f_a: \mathbb{R}^d \times \mathbb{R}^d \rightarrow \R$
 $$e_{v, t} = f_a(\bold z_v, \bold q_t), \forall v \in V$$ 
 * Normalize the attention score to obtain the attention weights
