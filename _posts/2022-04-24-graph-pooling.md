@@ -5,7 +5,7 @@ tags:
   - Pooling
 ---
 
-In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\boldsymbol{A} \in \mathbb{R}^{|V| \times |V|}$, $\boldsymbol{Z} \in \mathbb{R}^{|V| \times d}$ respectively.
+In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\boldsymbol{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\boldsymbol{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
 
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
