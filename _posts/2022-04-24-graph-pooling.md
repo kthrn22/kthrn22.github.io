@@ -67,7 +67,7 @@ After grouping the nodes into $c$ clusters, we will obtain a coarsened graph tha
 ## DiffPool
 Ying et al. [Hierarchical Graph Representation Learning with Differentiable Pooling](https://proceedings.neurips.cc/paper/2018/file/e77dbaf6759253c7c6d0efc5690369c7-Paper.pdf), NeurIPS 2018
 <p style = "text-align: center;">
-  <img src="DiffPool.jpg">
+  <img src="images/DiffPool.jpg">
   From 
   <a href = "https://proceedings.neurips.cc/paper/2018/file/e77dbaf6759253c7c6d0efc5690369c7-Paper.pdf">Source
   </a>
@@ -171,7 +171,7 @@ Unlike **Graph Coarsening Methods**, instead of clustering nodes, Top-$K$ method
 H. Gao, S. Ji. [Graph U-Nets](http://proceedings.mlr.press/v97/gao19a/gao19a.pdf), ICML 2019
 
 <p style = "text-align: center;">
-  <img src="gPool.jpg">
+  <img src="images/gPool.jpg">
   From 
   <a href = "http://proceedings.mlr.press/v97/gao19a/gao19a.pdf">Source
   </a>
@@ -217,13 +217,13 @@ Applying the gate operator, gPool makes the projection vector $\bold p^{(l)}$ tr
 > Since gPool omits nodes that are not in top $k$, their related edges will also be removed. As a result, the new graph formed by selected nodes will likely have isolated nodes. 
 > For example, take the graph below as the original graph
 > <p style = "text-align: center;">
->  <img src="output.png">
+>  <img src="images/output.png">
 > </p>
 >
 > Suppose that gPool retains node $2, 4, 5$ and $6$, so node $1$, $3$ and their related edges wil be omitted.
 > Then our new graph will be
 > <p style = "text-align: center;">
->  <img src="output1.png">
+>  <img src="images/output1.png">
 > </p>
 >
 > In our new graph, the nodes are isolated.
