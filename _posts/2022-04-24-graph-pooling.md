@@ -14,7 +14,11 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-The goal **Set Pooling** is to map a set of node embeddings $\{ \mathbf{z}_1, \dots, \mathbf{z}_{\vert V \vert} \}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
+The goal **Set Pooling** is to map a set of node embeddings 
+
+$$ \{ \mathbf{z}_1, \dots, \mathbf{z}_{\vert V \vert} \} $$ 
+
+to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
 
 ## Global pooling
 
@@ -70,7 +74,7 @@ where $\mathbf{S}_{v, i}$ denotes how likely node $v$ is in cluster $i$
 
 We will use $\mathbf{S}$ to coarsen the graph. Specifically, we will compute the coarsened adjacency matrix
 
-$$ \mathbf{\hat{A}} = \mathbf{S}^T \mathbf{A} \mathbf{S} \in \mathbb{R}^{c\times c} $$,
+$$ \mathbf{\hat{A}} = \mathbf{S}^T \mathbf{A} \mathbf{S} \in \mathbb{R}^{c\times c} $$
 
 and a new matrix of embeddings
 
