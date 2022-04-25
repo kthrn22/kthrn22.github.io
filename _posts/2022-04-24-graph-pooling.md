@@ -14,7 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-The goal **Set Pooling** is to map a set of node embeddings $\{\boldsymbol{z}_1, \dots, \bold z_{\vert V \vert}\}$ to an embedding that represents the entire graph, $\boldsymbol{z}_{G}$.
+The goal **Set Pooling** is to map a set of node embeddings $ \{\boldsymbol{z}_1, \dots, \boldsymbol{z}_{\vert V \vert}\} $ to an embedding that represents the entire graph, $ \boldsymbol{z}_{G} $.
 
 ## Global pooling
 
