@@ -14,9 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-$$\mathbf{o}_{t - 1}$$ and $$\mathbf{q}_{t - 1}$$
-
-The goal **Set Pooling** is to map a set of node embeddings $\mathbf{z}_{1}, \ldots, \mathbf{z}_{\vert V \vert}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
+The goal **Set Pooling** is to map a set of node embeddings $$\mathbf{z}_{1}, \ldots, \mathbf{z}_{\vert V \vert}$$ to an embedding that represents the entire graph, $$\mathbf{z}_{G}$$.
 
 ## Global pooling
 
@@ -165,8 +163,7 @@ At layer $0$, the input will be the original graph's adjacency matrix $\mathbf{A
 
 **Auxiliary Link Prediction Objective and Entropy Regularization**
 
-In pratice training the pooling GNN $(\text{GNN}_{pool})$
-based only on gradient in the graph classification task can be difficult, since optimizing the $\text{GNN}_{pool}$ will now become a non-convex optimization problem. In order to address this problem, the authors of DiffPool train $\text{GNN}_{pool}$ with an auxiliary link prediction objective, which tells us that nearby nodes should be pooled together. Specifically, at each layer $l$, the following loss function will be minimized: 
+In pratice training the pooling GNN $$(\text{GNN}_{pool})$$ based only on gradient in the graph classification task can be difficult, since optimizing the $$\text{GNN}_{pool}$$ will now become a non-convex optimization problem. In order to address this problem, the authors of DiffPool train $$\text{GNN}_{pool}$$ with an auxiliary link prediction objective, which tells us that nearby nodes should be pooled together. Specifically, at each layer $l$, the following loss function will be minimized: 
 
 $$ L_{LP} =  \Vert \mathbf{A}^{(l)} - \mathbf{S}^{(l)} \mathbf{S}^{(l)^T} \Vert _F $$ 
 
@@ -176,11 +173,11 @@ where $\Vert . \Vert _F$ denotes the Forbenius norm.
 > 
 > At each layer $l$, let $\mathbf{Q} = \mathbf{A}^{(l)} - \mathbf{S}^{(l)} \mathbf{S}^{(l)^T}$, then $L_{LP} = \sqrt{\sum_{i \in V} \sum_{j \in V} \mathbf{Q}_{ij}^2}$  
 >
-> We have $\mathbf{Q}_{ij} = \mathbf{A}^{(l)}_{ij} - \mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$, where $\mathbf{S}^{(l)}_i$ is the $i$-th row of $\mathbf{S}^{(l)}$.
+> We have $$\mathbf{Q}_{ij} = \mathbf{A}^{(l)}_{ij} - \mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$$, where $$\mathbf{S}^{(l)}_i$$ is the $$i$$-th row of $$\mathbf{S}^{(l)}$$.
 >
 > Thus, minimizing $L_{LP}$ means minimizing $\sum_{i \in V} \sum_{j \in V} (\mathbf{A}^{(l)}_{ij} - \mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j)^2 $. 
 >
-> If $i$ and $j$ are nearby then both $\mathbf{A}^{(l)}_{ij}$ and $\mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$ will be large. Similarly, if $i$ and $j$ are not nearby then both $\mathbf{A}^{(l)}_{ij}$ and $\mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$ will be small. Thus minimizing $L_{LP}$ will force nearby nodes being pooled together. 
+> If $i$ and $j$ are nearby then both $$\mathbf{A}^{(l)}_{ij}$$ and $$\mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$$ will be large. Similarly, if $$i$$ and $$j$$ are not nearby then both $$\mathbf{A}^{(l)}_{ij}$$ and $$\mathbf{S}^{(l)}_i \mathbf{S}^{(l)^T}_j$$ will be small. Thus minimizing $$L_{LP}$$ will force nearby nodes being pooled together. 
 
 Moreover, the cluster assignment matrix $\mathbf{S}^{(l)}$ learned by the pooling GNN should have row vectors that are close to one-hot vectors, so that the node assignment can be clearly defined. Therefore, the authors of DiffPool regularize the entropy of the cluster assignment by minimizing the following equation:
 
