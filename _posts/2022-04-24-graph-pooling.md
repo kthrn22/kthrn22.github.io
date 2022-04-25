@@ -67,7 +67,7 @@ After grouping the nodes into $c$ clusters, we will obtain a coarsened graph tha
 ## DiffPool
 Ying et al. [Hierarchical Graph Representation Learning with Differentiable Pooling](https://proceedings.neurips.cc/paper/2018/file/e77dbaf6759253c7c6d0efc5690369c7-Paper.pdf), NeurIPS 2018
 <p style = "text-align: center;">
-  <img src="/images/DiffPool.jpg" width = 100%>
+  <img src="/images/DiffPool.jpg">
   From 
   <a href = "https://proceedings.neurips.cc/paper/2018/file/e77dbaf6759253c7c6d0efc5690369c7-Paper.pdf">Source
   </a>
