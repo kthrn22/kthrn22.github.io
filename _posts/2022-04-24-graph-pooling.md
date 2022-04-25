@@ -5,6 +5,8 @@ tags:
   - Pooling
 ---
 
+$\mathbf{a}$ and $\mathbf{b}$
+
 In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\mathbf{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
 
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
@@ -14,7 +16,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-The goal **Set Pooling** is to map a set of node embeddings $\{ \mathbf{z}_1, \dots, \mathbf{z}_{\vert V \vert} \}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
+The goal **Set Pooling** is to map a set of node embeddings $\mathbf{z}_1, \dots, \mathbf{z}_{\vert V \vert}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
 
 ## Global pooling
 
