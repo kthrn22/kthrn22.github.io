@@ -5,7 +5,7 @@ tags:
   - Pooling
 ---
 
-The goal of **A** is to map $\mathbf{a}_1, \mathbf{a}_n$ to graph embedding $\mathbf{z}_{G}$
+The goal of **A** is to map $\mathbf{a}_$ to graph embedding $\mathbf{z}_{G}$
 
 In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\mathbf{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
 
