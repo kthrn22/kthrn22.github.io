@@ -14,7 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-The goal **Set Pooling** is to map a set of node embeddings $\{\boldsymbol{z}_1, \dots, \bold z_{\vert V \vert}\}$$ to an embedding that represents the entire graph, $\boldsymbol{z}_{G}$.
+The goal **Set Pooling** is to map a set of node embeddings $\{\boldsymbol{z}_1, \dots, \bold z_{\vert V \vert}\}$ to an embedding that represents the entire graph, $\boldsymbol{z}_{G}$.
 
 ## Global pooling
 
@@ -32,8 +32,8 @@ Set2Set iterates for $t = 1, \dots, T$ steps <br/>
 
 At step $t$:
 * Compute the query vector for attention at iteration $t$
-$$\bold q_t = \text{LSTM}(\bold o_{t - 1}, \bold q_{t - 1})$$
-* Compute the attention score over each node using the attention function $f_a: \R^d \times \R^d \rightarrow \R$
+$$\boldsymbol{q}_t = \text{LSTM}(\boldsymbol{o}_{t - 1}, \boldsybmbol{q}_{t - 1})$$
+* Compute the attention score over each node using the attention function $f_a: \mathbb{R}^d \times \mathbb{R}^d \rightarrow \R$
 $$e_{v, t} = f_a(\bold z_v, \bold q_t), \forall v \in V$$ 
 * Normalize the attention score to obtain the attention weights
 $$\alpha_{v, t} = \frac{\exp(e_{v, t})}{\sum_{u \in V}exp(e_{u, t})}$$
