@@ -14,7 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-$\mathbf{o}_{t - 1}, \mathbf{q}_{t - 1}$
+$$ \mathbf{o}_{t - 1}, \mathbf{q}_{t - 1} $$
 
 The goal **Set Pooling** is to map a set of node embeddings $\mathbf{z}_{1}, \ldots, \mathbf{z}_{\vert V \vert}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
 
