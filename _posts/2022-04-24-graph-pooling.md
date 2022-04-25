@@ -14,7 +14,7 @@ In this blog, I will present some strategies for **graph pooling**
 
 # Set Pooling Methods
 
-The goal **Set Pooling** is to map a set of node embeddings $\{\mathbf{z}_1, \dots, \mathbf{z}_{\vert V \vert}\}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
+The goal **Set Pooling** is to map a set of node embeddings $\{ \mathbf{z}_1, \dots, \mathbf{z}_{\vert V \vert} \}$ to an embedding that represents the entire graph, $\mathbf{z}_{G}$.
 
 ## Global pooling
 
@@ -32,12 +32,19 @@ Set2Set iterates for $t = 1, \dots, T$ steps <br/>
 
 At step $t$:
 * Compute the query vector for attention at iteration $t$
+
 $$ \mathbf{q}_t = \text{LSTM}(\mathbf{o}_{t - 1}, \mathbf{q}_{t - 1}) $$
+
 * Compute the attention score over each node using the attention function $f_a: \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R}$
+
 $$ e_{v, t} = f_a(\mathbf{z}_v, \mathbf{q}_t), \forall v \in V $$ 
+
 * Normalize the attention score to obtain the attention weights
+
 $$ \alpha_{v, t} = \frac{\exp(e_{v, t})}{\sum_{u \in V}exp(e_{u, t})} $$
+
 * Compute the weighted sum of node embeddings, the weight for each node's embedding is its attention weight computed in the previous step
+
 $$ \mathbf{o}_t = \sum_{v \in V} \alpha_{v, t}\mathbf{z}_v, \text{ where } \mathbf{z}_v \text{ is node } v \text{'s embedding} $$ 
 
 After $T$ iterations, compute the final embedding of the graph by the following equation:
@@ -70,7 +77,7 @@ and a new matrix of embeddings
 $$ \mathbf{\hat{X}} = \mathbf{S}^T \mathbf{Z} \in \mathbb{R}^{c \times d} $$
 
 > **Intuition of $\mathbf{\hat{A}}$ and $\mathbf{\hat{X}}$** <br/> 
-For $i, j \leq c$
+> For $i, j \leq c$
 >
 > $$ \mathbf{\hat{A}}_{i, j} = \sum_{v \in V} \sum_{u \in N(v)} \mathbf{S}_{v, i} \mathbf{S}_{u,j} $$ 
 > 
@@ -221,10 +228,9 @@ $$ \text{idx} = \text{rank}(\mathbf{y}, k) $$
 
 After selecting $k$ nodes, we obtain a new graph represented by a new adjacency matrix $\mathbf{\hat{A}}$ and new node features $\mathbf{\hat{X}}$. Specifically, based on the indices of selected nodes, gPool extracts some rows and columns of $\mathbf{A}$ to form $\mathbf{\hat{A}}$ and extracts some rows of $\mathbf{X}$ to form $\mathbf{\hat{X}}$:
 
-$$ \begin{split}
-& \mathbf{A}^{(l + 1)} = \mathbf{\hat{A}} = \mathbf{A}^{(l)}(\text{idx}, \text{idx}) \in \mathbb{R}^{k \times k} \\
-& \mathbf{\hat{X}} = \mathbf{X}^{(l)}(\text{idx}, :) \in \mathbb{R}^{k \times d}
-\end{split} $$
+$$ \mathbf{A}^{(l + 1)} = \mathbf{\hat{A}} = \mathbf{A}^{(l)}(\text{idx}, \text{idx}) \in \mathbb{R}^{k \times k} $$
+
+$$ \mathbf{\hat{X}} = \mathbf{X}^{(l)}(\text{idx}, :) \in \mathbb{R}^{k \times d} $$
 
 **Gate**
 
