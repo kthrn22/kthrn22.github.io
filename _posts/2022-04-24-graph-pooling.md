@@ -1,4 +1,4 @@
-In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\bold A \in \R^{|V| \times |V|}$, $\bold Z \in \R^{|V| \times d}$ respectively.
+In this blog, I present a graph $$\mathcal{G} = (V, E)$$, where $$V$$ the set of nodes and $$E$$ is the set of edges. I denote the adjacency matrix and node embeddings as $$\bold A \in \R^{|V| \times |V|}$$, $$\bold Z \in \R^{|V| \times d}$$ respectively.
 
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
@@ -136,9 +136,11 @@ At layer $0$, the input will be the original graph's adjacency matrix $\bold A$ 
 
 **Auxiliary Link Prediction Objective and Entropy Regularization**
 
-In pratice training the pooling GNN ($\text{GNN}_{pool}$) based only on gradient in the graph classification task can be difficult, since optimizing the $\text{GNN}_{pool}$ will now become a non-convex optimization problem. In order to address this problem, the authors of DiffPool train $\text{GNN}_{pool}$ with an auxiliary link prediction objective, which tells us that nearby nodes should be pooled together. Specifically, at each layer $l$, the following loss function will be minimized: 
+In pratice training the pooling GNN $(\text{GNN}_{pool})$
+based only on gradient in the graph classification task can be difficult, since optimizing the $\text{GNN}_{pool}$ will now become a non-convex optimization problem. In order to address this problem, the authors of DiffPool train $\text{GNN}_{pool}$ with an auxiliary link prediction objective, which tells us that nearby nodes should be pooled together. Specifically, at each layer $l$, the following loss function will be minimized: 
 
-$$L_{LP} =  ||\bold A^{(l)} - \bold S^{(l)} \bold S^{(l)^T} ||_F$$ 
+$$L_{LP} = ||\bold A^{(l)} - \bold S^{(l)} \bold S^{(l)^T}||_
+$$ L_{LP} =  ||\bold A^{(l)} - \bold S^{(l)} \bold S^{(l)^T} ||_F$$ 
 where $||.||_F$ denotes the Forbenius norm.
 
 > **Intuition of $L_{LP}$**
