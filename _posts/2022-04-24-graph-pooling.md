@@ -230,9 +230,13 @@ $$ \begin{split}
 
 In order to control the information flow, gPool applies gate operation:
 
-$$ \mathbf{\hat{y}} = \sigma(\mathbf{y}(\text{idx})), \text{where } \sigma(.) \text{ is the sigmoid function} $$ 
+$$ \mathbf{\hat{y}} = \sigma(\mathbf{y}(\text{idx})), $$ 
 
-$$ \mathbf{X}^{(l + 1)} = \mathbf{\hat{X}} \odot (\mathbf{\hat{y}} \mathbf{1}_d^T), \text{where } \odot \text{ is the element-wise matrix product} $$
+where $\sigma(.)$ is the sigmoid function
+
+$$ \mathbf{X}^{(l + 1)} = \mathbf{\hat{X}} \odot (\mathbf{\hat{y}} \mathbf{1}_d^T), $$ 
+
+where $\odot$ is the element-wise matrix product
 
 Applying the gate operator, gPool makes the projection vector $\mathbf{p}^{(l)}$ trainable by back-propagation.
 
