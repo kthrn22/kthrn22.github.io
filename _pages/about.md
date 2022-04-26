@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-I'm bla bla bla
+Hi 👋
