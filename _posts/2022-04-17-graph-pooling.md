@@ -2,6 +2,7 @@
 title: Graph Pooling
 date: 2022-04-17
 permalink: /posts/graph-pooling
+description: graph pooling
 tags:
   - GNN
   - Pooling
