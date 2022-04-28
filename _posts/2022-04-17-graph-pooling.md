@@ -2,7 +2,6 @@
 title: Graph Pooling
 date: 2022-04-17
 permalink: /posts/graph-pooling
-description: graph pooling
 tags:
   - GNN
   - Pooling
@@ -14,19 +13,6 @@ Given the node embeddings of a graph, how can we make predictions at graph-level
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
 
 In this blog, I will present some strategies for **graph pooling** follow the below table of contents.
-
-<!-- - **TABLE OF CONTENTS**
-    1. **Set Pooling Methods**
-        1. Global pooling
-        2. Set2Set
-    2. **Graph Coarsening Methods**
-        1. DiffPool
-    3. **Top-$$K$$ Methods**
-        1. gPool
-    4. **References** -->
-        
-* Do not remove this line (it will not be displayed)
-{:toc}    
 
 # Set Pooling Methods
 
