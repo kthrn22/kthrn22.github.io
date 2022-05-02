@@ -8,6 +8,7 @@ tags:
 ---
 
 ---
+
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
 
@@ -27,6 +28,7 @@ I will present a graph as $\mathcal{G} = (V, E)$, where $V$ the set of nodes and
 
 * Do not remove this line (it will not be displayed)
 {:toc}    
+
 ---
 
 # Set Pooling Methods
