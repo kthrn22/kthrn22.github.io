@@ -15,17 +15,17 @@ In this blog, I will present some strategies for **graph pooling**.
 I will present a graph as $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\mathbf{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
 
 ### Table of Contents
-[Set Pooling](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#set-pooling-methods)
-* [Global Pooling](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#global-pooling)
-* [Set2Set](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#set2set)
+* [Set Pooling](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#set-pooling-methods)
+  * [Global Pooling](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#global-pooling)
+  * [Set2Set](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#set2set)
 
-[Graph Coarsening Methods](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#graph-coarsening-methods)
-* [DiffPool](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#diffpool)
+* [Graph Coarsening Methods](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#graph-coarsening-methods)
+  * [DiffPool](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#diffpool)
 
-[Top-$K$ methods](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#top-k-methods)
-* [gPool](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#gpool)
+* [Top-$K$ methods](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#top-k-methods)
+  * [gPool](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#gpool)
 
-[References](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#references)
+* [References](https://github.com/kthrn22/kthrn22.github.io/blob/master/_posts/2022-04-17-graph-pooling.md#references)
 
 # Set Pooling Methods
 
