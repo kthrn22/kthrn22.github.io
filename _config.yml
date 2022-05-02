@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "wanderer"
+title                    : "Nhan Tieu"
 title_separator          : "-"
 name                     : &name "Nhan Tieu"
 description              : &description "personal description"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Nhan Tieu"
   avatar           : "white.jpg"
-  bio              : ""
+  bio              : "Wanderer"
   location         : #"Location"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
