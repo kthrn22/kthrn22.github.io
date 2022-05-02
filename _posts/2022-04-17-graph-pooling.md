@@ -7,12 +7,27 @@ tags:
   - Pooling
 ---
 
-In this blog, I present a graph $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\mathbf{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
-
+---
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
 
-In this blog, I will present some strategies for **graph pooling** follow the below table of contents.
+In this blog, I will present some strategies for **graph pooling**.
+
+I will present a graph as $\mathcal{G} = (V, E)$, where $V$ the set of nodes and $E$ is the set of edges. I denote the adjacency matrix and node embeddings as $\mathbf{A} \in \mathbb{R}^{ \vert V \vert \times \vert V \vert}$, $\mathbf{Z} \in \mathbb{R}^{\vert V \vert \times d}$ respectively.
+
+<!-- - **TABLE OF CONTENTS**
+    1. **Set Pooling Methods**
+        1. Global pooling
+        2. Set2Set
+    2. **Graph Coarsening Methods**
+        1. DiffPool
+    3. **Top-$K$ methods**
+        1. gPool
+    4. **References** -->
+
+* Do not remove this line (it will not be displayed)
+{:toc}    
+---
 
 # Set Pooling Methods
 
