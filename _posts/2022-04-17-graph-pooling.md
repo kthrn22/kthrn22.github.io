@@ -14,39 +14,6 @@ $\rightarrow$ We will have to learn the embedding for the entire a graph by pool
 
 In this blog, I will present some strategies for **graph pooling** follow the below table of contents.
 
----
-
-### Table of contents
-
-<!-- - **TABLE OF CONTENTS**
-    1. **Representing Graphs**
-        1. Connection to Images
-        2. What's in a node?
-        3. Edges Matter Too!
-    2. **Graph Neural Network**
-        1. Message Passing
-        2. Aggregation
-        3. Update
-        4. Putting Them Together
-        5. Working with Edges
-        6. Working with Adjacency Matrices
-        7. Stacking GNN layers
-    3. **Training a GNN**
-        1. Training and Testing Graph Data (Transductive vs. Inductive)
-        2. Backprop and Gradient Descent
-    4. **Popular Graph Neural Networks**
-        1. Message Passing Neural Network
-        2. Graph Convolutional Network
-        3. Graph Attention Network
-        4. GraphSAGE
-        5. Temporal Graph Network
-    5. **Conclusion** -->
-
-* Do not remove this line (it will not be displayed)
-{:toc}    
-
----
-
 # Set Pooling Methods
 
 The goal **Set Pooling** is to map a set of node embeddings $$\{\mathbf{z}_{1}, \ldots, \mathbf{z}_{\vert V \vert}\}$$ to an embedding that represents the entire graph, $$\mathbf{z}_{G}$$.
