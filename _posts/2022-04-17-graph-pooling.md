@@ -15,7 +15,6 @@ $\rightarrow$ We will have to learn the embedding for the entire a graph by pool
 In this blog, I will present some strategies for **graph pooling** follow the below table of contents.
 
 ### Table of contents
----
 
 <!-- - **TABLE OF CONTENTS**
     1. **Representing Graphs**
@@ -43,8 +42,6 @@ In this blog, I will present some strategies for **graph pooling** follow the be
 
 * Do not remove this line (it will not be displayed)
 {:toc}    
-
----
 
 # Set Pooling Methods
 
