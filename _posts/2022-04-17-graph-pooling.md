@@ -7,8 +7,6 @@ tags:
   - Pooling
 ---
 
----
-
 Given the node embeddings of a graph, how can we make predictions at graph-level? <br/>
 $\rightarrow$ We will have to learn the embedding for the entire a graph by pooling node embeddings and this is usually referred as **graph pooling**.
 
