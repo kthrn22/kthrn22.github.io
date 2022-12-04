@@ -4,7 +4,7 @@ date: 2022-11-20
 permalink: /posts/NeuroMatch
 tags:
   - GNN
-  - Pooling
+  - Subgraph Matching
 ---
 
 # Neural Subgraph Matching (NeuroMatch) explained
