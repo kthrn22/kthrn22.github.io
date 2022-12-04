@@ -7,13 +7,11 @@ tags:
   - Subgraph Matching
 ---
 
-# Neural Subgraph Matching (NeuroMatch) explained
-
-## What is subgraph matching?
+# What is subgraph matching?
 
 Given a query graph $G_Q$ and a larger target graph $G_T$, subgraph isomorphism matching is a task that determines whether $G_Q$ is isomorphic to any subgraph of $G_T$. In theoretical computer science, this task is NP-complete, existing methods based on combinatorial matching become computationally expensive when it comes to large query and target graphs.
 
-## Overview
+# Overview
 
 NeuroMatch offers a fast, neural approach to subgraph matching by using Graph Neural Networks (GNNs) to capture subgraph relations and embed the query and target graph to vector space.
 
@@ -21,7 +19,7 @@ To predict whether $G_Q$ is isomorphic to a subgraph of $G_T$, the authors of Ne
 
 Given a neighborhood $G_u$ around node $u$ of $G_T$ and the query graph anchored at node $v$ of $G_Q$, $G_v$, predict whether $G_v$ is a subgraph of $G_u$.
 
-### The Algorithm:
+## The Algorithm:
 
 For every node $u$ of $G_Q$ and $v$ of $G_T$:
 
@@ -30,9 +28,9 @@ For every node $u$ of $G_Q$ and $v$ of $G_T$:
 
 Compute the average score of all $f(\mathbf{z}_u, \mathbf{z}_v)$ and make prediction base on the score
 
-## Main Ideas
+# Main Ideas
 
-### Embedding Stage
+## Embedding Stage
 
 For every node $u$ of the target graph $G_T$, extract its $k$-hop neighborhood and apply $k$-layer GNN on the $k$-hop neighborhood to obtain node embedding $\mathbf{z}_u$. 
 
@@ -40,7 +38,7 @@ For every node $v$ of the query graph $G_Q$, denote the query graph anchored at 
 
 **Choice of $k$:** Depends on the size of the query graph. Specifically, $k$ must be at least the diameter of $G_Q$.
 
-### Subgraph Relation
+## Subgraph Relation
 
 **Subgraph relation is PARTIAL ORDER:**
 
@@ -48,7 +46,7 @@ For every node $v$ of the query graph $G_Q$, denote the query graph anchored at 
 - *Antisymmetry*: if $G_1$ is a subgraph of $G_2$, $G_2$ is a subgraph of $G_1$, then $G_1$ and $G_2$ are isomorphic
 - *Transitivity*: if $G_1$ is a subgraph of $G_2$, $G_2$ is a subgraph of $G_3$, then $G_1$ is a subgraph of $G_3$
 
-### Order Embeddings
+## Order Embeddings
 
 Since the prediction is made based only on node embeddings, it is essential that node embeddings reflect subgraph relations. The order in the paper is defined as follow
 
@@ -58,7 +56,7 @@ $$
 
 less-than-or-equal relation is a partial order, so it is able to reflect subgraph relations in the embedding space. 
 
-### Subgraph Prediction Function $f(\mathbf{z}_u, \mathbf{z}_v)$
+## Subgraph Prediction Function $f(\mathbf{z}_u, \mathbf{z}_v)$
 
 Define the function $E(\mathbf{z}_u, \mathbf{z}_v)$ as follow:
 
@@ -72,7 +70,7 @@ $$
 f(\mathbf{z}_u, \mathbf{z}_v) = \begin{cases} 1 \text{ if } E(\mathbf{z}_u \mathbf{z}_v) < t \\ 0 \text{ otherwise} \end{cases}
 $$
 
-### Loss Function
+## Loss Function
 
 Loss function is defined as follow
 
@@ -93,6 +91,6 @@ Minimizing this function is equivalent to
     For negative examples, i.e. $G_v$ is not a subgraph of $G_u$, $\mathbf{z}_u$ and $\mathbf{z}_v$ are expected to not reflect the subgraph relation, so $E(\mathbf{z}_u, \mathbf{z}_v)$ should not be too low. Thus, $E(\mathbf{z}_u, \mathbf{z}_v)$ should be at least $\alpha$, i.e. $E(\mathbf{z}_u, \mathbf{z}_v) \geq \alpha$, so that $\max\{0, \alpha - E(\mathbf{z}_u, \mathbf{z}_v)\} = 0$. The lower$\max\{0, \alpha - E(\mathbf{z}_u, \mathbf{z}_v)\}$ the better.
     
 
-## References
+# References
 
 Rex (Zhitao)Ying, Zhaoyu Lou, Jiaxuan You, Chengtao Wen, Arquimedes Canedo, and Jure Leskovec. Neural Subgraph Matching. *arXiv preprint arXiv:2007.03092*, 2020.
