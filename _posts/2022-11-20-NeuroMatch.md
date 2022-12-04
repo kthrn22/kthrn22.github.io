@@ -1,4 +1,13 @@
-# Neural Subgraph Matching (NeuroMatch) Explained
+---
+title: Neural Subgraph Matching (NeuroMatch) explained
+date: 2022-04-17
+permalink: /posts/NeuroMatch
+tags:
+  - GNN
+  - Pooling
+---
+
+# Neural Subgraph Matching (NeuroMatch) explained
 
 ## What is subgraph matching?
 
