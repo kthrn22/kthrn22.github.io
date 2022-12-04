@@ -1,6 +1,6 @@
 ---
 title: Neural Subgraph Matching (NeuroMatch) explained
-date: 2022-04-17
+date: 2022-11-20
 permalink: /posts/NeuroMatch
 tags:
   - GNN
