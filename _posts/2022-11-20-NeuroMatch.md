@@ -88,7 +88,7 @@ Minimizing this function is equivalent to
     
 - Minimizing $\sum_{(\mathbf{z}_u, \mathbf{z}_v) \in N} \max\{0, \alpha - E(\mathbf{z}_u, \mathbf{z}_v)\}$:
     
-    For negative examples, i.e. $G_v$ is not a subgraph of $G_u$, $\mathbf{z}_u$ and $\mathbf{z}_v$ are expected to not reflect the subgraph relation, so $E(\mathbf{z}_u, \mathbf{z}_v)$ should not be too low. Thus, $E(\mathbf{z}_u, \mathbf{z}_v)$ should be at least $\alpha$, i.e. $E(\mathbf{z}_u, \mathbf{z}_v) \geq \alpha$, so that $\max \{0, \alpha - E(\mathbf{z}_u, \mathbf{z}_v) \} = 0$. The lower $\max \{0, \alpha - E(\mathbf{z}_u, \mathbf{z}_v) \}$ the better.
+    For negative examples, i.e. $G_v$ is not a subgraph of $G_u$, $\mathbf{z}_u$ and $\mathbf{z}_v$ are expected to not reflect the subgraph relation, so $E(\mathbf{z}_u, \mathbf{z}_v)$ should not be too low. Thus, $E(\mathbf{z}_u, \mathbf{z}_v)$ should be at least $\alpha$, i.e. $E(\mathbf{z}_u, \mathbf{z}_v) \geq \alpha$, so that $\max \{ 0, \alpha - E(\mathbf{z}_u, \mathbf{z}_v) \} = 0$. The lower $\max \{ 0, \alpha - E(\mathbf{z}_u, \mathbf{z}_v) \}$ the better.
     
 
 # References
