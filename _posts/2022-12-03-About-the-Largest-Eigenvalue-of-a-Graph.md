@@ -170,8 +170,6 @@ For a graph that has only one vertex and has no edge, it can be colored by one c
 
 Suppose that the theorem is correct for graph that has $n - 1$ vertices. Let $G$ is a graph that has $n$ vertices and its largest eigenvalues is $\mu_1$. Since $\mu_1$ is greater than or equal to the average degree of $G$, so there is a vertex $a$ such that $d_a \leq \lfloor \mu_1 \rfloor$, where $d(a)$ is the degree of vertex $a$. Let $H$ is an induced subgraph of $G$ without vertex $a$, and denote the largest eigenvalue of $H$ as $\lambda_1$, then $\lambda_1 \leq \mu_1$. Since $H$ has $n - 1$ vertices so $\chi(H) \leq \lfloor \lambda_1  \rfloor + 1 \leq \lfloor \mu_1  \rfloor + 1$, implying that $H$ can be colored using at most $\lfloor \mu_1\rfloor + 1$. Suppose such coloring is labeled as $\{1, ..., \lfloor u_1 \rfloor\  + 1\}$. For graph $G$, since $a$ has at most $\lfloor u_1 \rfloor$ neighbors, so there is a color in $\{1, ..., \lfloor u_1 \rfloor\  + 1\}$ that does not appear in $a$’s neigborhood and that color can be assigned to $a$. Thus $G$ can be colored using at most $\lfloor \mu_1 \rfloor + 1$  colors. 
 
----
-
 # Perron-Frobenius Theorem for Symmetric Matrices
 
 If $G$ is a connected weighted graph with adjacency matrix $\mathbf{A}$ and eigenvalues $\lambda_1 \geq... \geq \lambda_n$ then 
@@ -236,8 +234,6 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     
     Thus, $\mu_1 \geq |\mu|_n$
     
-
----
 
 # References
 
