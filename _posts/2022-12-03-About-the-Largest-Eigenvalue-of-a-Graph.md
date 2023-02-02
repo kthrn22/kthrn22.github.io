@@ -181,7 +181,7 @@ If $G$ is a connected weighted graph with adjacency matrix $\mathbf{A}$ and eige
 
 ### Lemma
 
-Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$. Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A}_{a, b} > 0$. Since $\mathbf{Au}(a) = \sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v) =\lambda_1 \mathbf{u}(a) = 0$. However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{a, b} \mathbf{u}(b) > 0$, contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v)$, which will make $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v) =\lambda_1 \mathbf{u}(a) > 0$. Thus, we obtain a contradiction, and the Lemma is proven. 
+Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A}_{a, b} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v) =\lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{a, b} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v) =\lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
 
 - The corresponding eigenvector of $\lambda_1$ has strictly positive entries
     
@@ -199,18 +199,18 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     \mu_ 1 = \mathbf{u^\intercal Au} = \sum \mathbf{A}_{ij}\mathbf{u}(i)\mathbf{u}(j) \leq \sum \mathbf{A}_{ij}\mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax}
     $$
     
-    Since $\mathbf{\frac{x^\intercal Ax}{x^\intercal x}} \leq \mu_1$ (Rayleight-Ritz Theorem), so $\mathbf{x^\intercal Ax} = \mu_1$, and $\mathbf{x}$ is a non-negative eigenvector of $\mu_1$. Thus, $\mathbf{x}$ is stricly positive.
+    Since $\mathbf{\frac{x^\intercal Ax}{x^\intercal x}} \leq \mu_1$ (Rayleight-Ritz Theorem), so $\mathbf{x^\intercal Ax} = \mu_1$ , and $\mathbf{x}$ is a non-negative eigenvector of $\mu_1$ . Thus, $\mathbf{x}$ is stricly positive.
     
-- The multiplicity of $\mu_1$ is $1$.
+- The multiplicity of $\mu_1$ is $1$ .
     
     ### Proof
     
-    Let $\mathbf{u}_1$ be the eigenvector corresponds to $\mu_1$ and $\mathbf{u}_2$ is the eigenvector of $\mu_2$. If the multiplicity of $\mu_1$ is $1$ then we need to prove that $\mu_1 > \mu_2$. 
+    Let $\mathbf{u}_1$ be the eigenvector corresponds to $\mu_1$ and $\mathbf{u}_2$ is the eigenvector of $\mu_2$ . If the multiplicity of $\mu_1$ is $1$ then we need to prove that $\mu_1 > \mu_2$ . 
     
     Suppose that vector $\mathbf{y}$ is constructed as following:
     
     $$
-    \mathbf{y}(i) = |\mathbf{u}_2(i)|, \forall i
+    \mathbf{y}(i) = | \mathbf{u}_2(i) |, \forall i
     $$
     
     Thus,
@@ -219,19 +219,19 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     \mu_ 2 = \mathbf{u}_2 ^\intercal \mathbf{Au}_2 = \sum \mathbf{A}_{ij}\mathbf{u}_2(i)\mathbf{u}_2(j) \leq \sum \mathbf{A}_{ij}\mathbf{y}(i)\mathbf{y}(j) = \mathbf{y^\intercal Ay}\leq \mu_1
     $$
     
-    If $\mu_2 = \mu_1$ then $\mathbf{y}(i) = \mathbf{u}_2(i), \forall i$, so $\mathbf{u}_2(i) \geq 0, \forall i$. As $\mathbf{u}_2$ is orthogonal to $\mathbf{u}_1$ so $\sum_i \mathbf{u}_2(i) \mathbf{u}_1(i) = 0$, but $\mathbf{u}_1(i) > 0$ (derived from Lemma), $\mathbf{u}_2(i) \geq 0, \forall i$. Thus, if $\sum_i \mathbf{u}_2(i) \mathbf{u}_1(i) = 0$ then $\mathbf{u}_2(i) = 0, \forall i$, which is a contradiction. Therefore, $\mu_1 > \mu_2$ and the multiplicity of $\mu_1$ is $1$. 
+    If $\mu_2 = \mu_1$ then $\mathbf{y}(i) = \mathbf{u}_2(i), \forall i$, so $\mathbf{u}_2(i) \geq 0, \forall i$ . As $\mathbf{u}_2$ is orthogonal to $\mathbf{u}_1$ so $\sum_i \mathbf{u}_2(i) \mathbf{u}_1(i) = 0$ , but $\mathbf{u}_1(i) > 0$ (derived from Lemma), $\mathbf{u}_2(i) \geq 0, \forall i$ . Thus, if $\sum_i \mathbf{u}_2(i) \mathbf{u}_1(i) = 0$ then $\mathbf{u}_2(i) = 0, \forall i$, which is a contradiction. Therefore, $\mu_1 > \mu_2$ and the multiplicity of $\mu_1$ is $1$ . 
     
-- $\mu_1 \geq |\mu_n|$
+- $\mu_1 \geq | \mu_n |$
     
     ### Proof
     
-    Denote $\mathbf{u}_n$ as the eigenvector corresponds to $\mu_n$ and $\mathbf{u}_1$ as the eigenvector of $\mu_1$. Similar to the proof of previous arguments, construct a vector $\mathbf{x}$ as following:
+    Denote $\mathbf{u}_n$ as the eigenvector corresponds to $\mu_n$ and $\mathbf{u}_1$ as the eigenvector of $\mu_1$ . Similar to the proof of previous arguments, construct a vector $\mathbf{x}$ as following:
     
     $$\mathbf{x}(i) = |\mathbf{u}_n(i)|, \forall i$$
     
-    $|\mu_n| = |\mathbf{u}_n^\intercal \mathbf{Au}_n | = |\sum \mathbf{A} \mathbf{u}_n(i)\mathbf{u}_n(j)| \leq \sum_{ij}\mathbf{A} \mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax} \leq \mu_1$
+    $| \mu_n | = | \mathbf{u}_n^\intercal \mathbf{Au}_n | = | \sum \mathbf{A} \mathbf{u}_n(i)\mathbf{u}_n(j) | \leq \sum_{ij}\mathbf{A} \mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax} \leq \mu_1$
     
-    Thus, $\mu_1 \geq |\mu|_n$
+    Thus, $\mu_1 \geq | \mu |_n$
     
 
 # References
