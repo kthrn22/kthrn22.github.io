@@ -210,7 +210,7 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     Suppose that vector $\mathbf{y}$ is constructed as following:
     
     $$
-    \mathbf{y}(i) = | \mathbf{u}_2(i) |, \forall i
+    \mathbf{y}(i) = \lvert \mathbf{u}_2(i) \rvert, \forall i
     $$
     
     Thus,
@@ -221,7 +221,7 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     
     If $\mu_2 = \mu_1$ then $\mathbf{y}(i) = \mathbf{u}_2(i), \forall i$, so $\mathbf{u}_2(i) \geq 0, \forall i$ . As $\mathbf{u}_2$ is orthogonal to $\mathbf{u}_1$ so $\sum_i \mathbf{u}_2(i) \mathbf{u}_1(i) = 0$ , but $\mathbf{u}_1(i) > 0$ (derived from Lemma), $\mathbf{u}_2(i) \geq 0, \forall i$ . Thus, if $\sum_i \mathbf{u}_2(i) \mathbf{u}_1(i) = 0$ then $\mathbf{u}_2(i) = 0, \forall i$, which is a contradiction. Therefore, $\mu_1 > \mu_2$ and the multiplicity of $\mu_1$ is $1$ . 
     
-- $\mu_1 \geq | \mu_n |$
+- $\mu_1 \geq \lvert \mu_n \rvert$
     
     ### Proof
     
@@ -229,9 +229,9 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     
     $$\mathbf{x}(i) = |\mathbf{u}_n(i)|, \forall i$$
     
-    $| \mu_n | = | \mathbf{u}_n^\intercal \mathbf{Au}_n | = | \sum \mathbf{A} \mathbf{u}_n(i)\mathbf{u}_n(j) | \leq \sum_{ij}\mathbf{A} \mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax} \leq \mu_1$
+    $\lvert \mu_n \rvert = \lvert \mathbf{u}_n^\intercal \mathbf{Au}_n \rvert = \lvert \sum \mathbf{A} \mathbf{u}_n(i)\mathbf{u}_n(j) \rvert \leq \sum_{ij}\mathbf{A} \mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax} \leq \mu_1$
     
-    Thus, $\mu_1 \geq | \mu |_n$
+    Thus, $\mu_1 \geq \lvert \mu \rvert_n$
     
 
 # References
