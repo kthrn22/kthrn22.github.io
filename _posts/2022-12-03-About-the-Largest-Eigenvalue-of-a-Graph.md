@@ -22,6 +22,8 @@ tags:
 * [Wilf's Theorem](#wilfs-theorem)
 
 * [Perron-Frobenius Theorem for Symmetric Matrices](#perron-frobenius-theorem-for-symmetric-matrices)
+
+
 # Rayleigh Quotient
 
 Let $\mathbf{A}$ be a real symmetric matrix, $\mathbf{x}$ be a non-zero vector, the Rayleigh Quotient of $\mathbf{x}$ with respect to $\mathbf{A}$ is defined as 
@@ -134,7 +136,7 @@ $$
 \mathbf{\frac{x^\intercal A x}{x^\intercal x}} \leq \mu_1
 $$
 
-Since $\mathbf{x = 1} \Rightarrow \mathbf{(Ax)}_i$ (the i-th entry of $\mathbf{Ax}$) is the degree of vertex $i$, $d_i$. Thus, $\mathbf{x^\intercal(Ax)} = \sum_{i = 1}^n d_i$. Moreover, $\mathbf{x^\intercal x} = n$, so
+Since $\mathbf{x = 1} \Rightarrow \mathbf{(Ax)}_i$ (the i-th entry of $\mathbf{Ax}$) is the degree of vertex $i$, $d_i$ . Thus, $\mathbf{x^\intercal(Ax)} = \sum_{i = 1}^n d_i$ . Moreover, $\mathbf{x^\intercal x} = n$, so
 
 $$
 \mathbf{\frac{x^\intercal Ax}{x^\intercal x}} = \frac{\sum d_i}{n} = \bar{d} \leq \mu_1 
@@ -175,7 +177,7 @@ If $G$ is a connected weighted graph with adjacency matrix $\mathbf{A}$ and eige
 
 - The corresponding eigenvector of $\lambda_1$ has strictly positive entries
 - The multiplicity of $\mu_1$ is $1$.
-- $\lambda_1 \geq |\lambda_n|$
+- $\lambda_1 \geq | \lambda_n |$
 
 ### Lemma
 
