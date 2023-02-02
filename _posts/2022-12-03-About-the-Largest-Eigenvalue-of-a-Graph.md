@@ -225,9 +225,7 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     
     Denote $\mathbf{u}_n$ as the eigenvector corresponds to $\mu_n$ and $\mathbf{u}_1$ as the eigenvector of $\mu_1$. Similar to the proof of previous arguments, construct a vector $\mathbf{x}$ as following:
     
-    $$
-    \mathbf{x}(i) = |\mathbf{u}_n(i)|, \forall i
-    $$
+    $$\mathbf{x}(i) = |\mathbf{u}_n(i)|, \forall i$$
     
     $|\mu_n| = |\mathbf{u}_n^\intercal \mathbf{Au}_n | = |\sum \mathbf{A} \mathbf{u}_n(i)\mathbf{u}_n(j)| \leq \sum_{ij}\mathbf{A} \mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax} \leq \mu_1$
     
