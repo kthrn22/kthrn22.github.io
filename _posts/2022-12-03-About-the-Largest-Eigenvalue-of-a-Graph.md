@@ -177,11 +177,11 @@ If $G$ is a connected weighted graph with adjacency matrix $\mathbf{A}$ and eige
 
 - The corresponding eigenvector of $\lambda_1$ has strictly positive entries
 - The multiplicity of $\mu_1$ is $1$.
-- $\lambda_1 \geq | \lambda_n |$
+- $\lambda_1 \geq \lvert \lambda_n \rvert$
 
 ### Lemma
 
-Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A}_{a, b} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v) =\lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{a, b} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v) =\lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
+Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A}_{a, b} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)} \mathbf{A}_{a, v} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{a, b} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)} \mathbf{A}_{a, v} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
 
 - The corresponding eigenvector of $\lambda_1$ has strictly positive entries
     
@@ -229,7 +229,7 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     
     $$\mathbf{x}(i) = |\mathbf{u}_n(i)|, \forall i$$
     
-    $\lvert \mu_n \rvert = \lvert \mathbf{u}_n^\intercal \mathbf{Au}_n \rvert = \lvert \sum \mathbf{A} \mathbf{u}_n(i)\mathbf{u}_n(j) \rvert \leq \sum_{ij}\mathbf{A} \mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax} \leq \mu_1$
+    $$\lvert \mu_n \rvert = \lvert \mathbf{u}_n^\intercal \mathbf{Au}_n \rvert = \lvert \sum \mathbf{A} \mathbf{u}_n(i)\mathbf{u}_n(j) \rvert \leq \sum_{ij}\mathbf{A} \mathbf{x}(i)\mathbf{x}(j) = \mathbf{x^\intercal Ax} \leq \mu_1$$
     
     Thus, $\mu_1 \geq \lvert \mu \rvert_n$
     
