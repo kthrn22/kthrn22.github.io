@@ -26,9 +26,7 @@ tags:
 
 Let $\mathbf{A}$ be a real symmetric matrix, $\mathbf{x}$ be a non-zero vector, the Rayleigh Quotient of $\mathbf{x}$ with respect to $\mathbf{A}$ is defined as 
 
-$$
-\frac{\mathbf{x}^{T}\mathbf{A}\mathbf{x}}{\mathbf{x}^T \mathbf{x}}
-$$
+$$ \frac{\mathbf{x}^{T}\mathbf{A}\mathbf{x}}{\mathbf{x}^T \mathbf{x}} $$
 
 If $\mathbf{\lambda}$ is an eigenvalue of $\mathbf{A}$  and $\mathbf{u}$ is the corresponding eigenvector then $\frac{\mathbf{u}^T \mathbf{A} \mathbf{u}}{\mathbf{u}^T \mathbf{u}} = \mathbf{\lambda}$ 
 
