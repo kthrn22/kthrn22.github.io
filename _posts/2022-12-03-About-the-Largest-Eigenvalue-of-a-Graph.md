@@ -136,7 +136,7 @@ $$
 \mathbf{\frac{x^\intercal A x}{x^\intercal x}} \leq \mu_1
 $$
 
-Since $\mathbf{x} = 1 \Rightarrow \mathbf{(Ax)}_{i}$ (the i-th entry of $\mathbf{Ax}$ ) is the degree of vertex $i$, $d_i$ . Thus, $\mathbf{x^\intercal(Ax)} = \sum_{i = 1}^n d_i$ . Moreover, $\mathbf{x^\intercal x} = n$ , so
+Since $\mathbf{x} = \mathbf{1} \Rightarrow \mathbf{(Ax)}_{i}$ (the i-th entry of $\mathbf{Ax}$ ) is the degree of vertex $i$, $d_i$ . Thus, $\mathbf{x^\intercal(Ax)} = \sum_{i = 1}^n d_i$ . Moreover, $\mathbf{x^\intercal x} = n$ , so
 
 $$
 \mathbf{\frac{x^\intercal Ax}{x^\intercal x}} = \frac{\sum d_i}{n} = \bar{d} \leq \mu_1 
