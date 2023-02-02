@@ -1,3 +1,11 @@
+---
+title: About the Largest Eigenvalue of a Graph
+date: 2022-12-03
+permalink: /posts/About the Largest Eigenvalue of a Graph
+tags:
+  - Algebraic Graph Theory
+---
+
 # About the Largest Eigenvalue of a Graph
 
 
