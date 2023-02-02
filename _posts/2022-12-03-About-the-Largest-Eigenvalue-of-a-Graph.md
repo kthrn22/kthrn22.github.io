@@ -181,7 +181,7 @@ If $G$ is a connected weighted graph with adjacency matrix $\mathbf{A}$ and eige
 
 ### Lemma
 
-Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A_{\text{a, b}}} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)} \mathbf{A_{\text{a, v}}} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A_\text{a, b}}}$  $\mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)} \mathbf{A_{\text{a, v}}} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)} \mathbf{A_{\text{a, v}}} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
+Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A_{\text{a, b}}} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)} \mathbf{A_{\text{a, v}}} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A_{\text{a, b}}} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)} \mathbf{A_{\text{a, v}}} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)} \mathbf{A_{\text{a, v}}} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
 
 - The corresponding eigenvector of $\lambda_1$ has strictly positive entries
     
