@@ -67,7 +67,7 @@ Let $\mathbf{A}$ be a $n \times n$  real symmetric matrix with eigenvalues $\lam
 
 - $\mathbf{B}$’s eigenvalues interlace those of $\mathbf{A}$
     
-    ### Proof
+    **Proof**
     
     Let $(\mathbf{a_1, ..., a_n}), (\mathbf{b_1, ..., b_m})$ be the orthonormal sets of eigenvectors of $\mathbf{A}$ and $\mathbf{B}$, respectively. 
     
@@ -181,11 +181,11 @@ If $G$ is a connected weighted graph with adjacency matrix $\mathbf{A}$ and eige
 
 ### Lemma
 
-Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A}_{a, b} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)} \mathbf{A}_{a, v} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{a, b} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{a, v} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)} \mathbf{A}_{a, v} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
+Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A}_{ab} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)} \mathbf{A}_{av} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{ab} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{av} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)} \mathbf{A}_{av} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
 
 - The corresponding eigenvector of $\lambda_1$ has strictly positive entries
     
-    ### Proof
+    **Proof**
     
     Denote $\mathbf{u}$ is the eigenvector of $\mu_1$ and vector $\mathbf{x}$ is constructed as following:
     
@@ -203,7 +203,7 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     
 - The multiplicity of $\mu_1$ is $1$ .
     
-    ### Proof
+    **Proof**
     
     Let $\mathbf{u}_1$ be the eigenvector corresponds to $\mu_1$ and $\mathbf{u}_2$ is the eigenvector of $\mu_2$ . If the multiplicity of $\mu_1$ is $1$ then we need to prove that $\mu_1 > \mu_2$ . 
     
@@ -223,7 +223,7 @@ Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such
     
 - $\mu_1 \geq \lvert \mu_n \rvert$
     
-    ### Proof
+    **Proof**
     
     Denote $\mathbf{u}_n$ as the eigenvector corresponds to $\mu_n$ and $\mathbf{u}_1$ as the eigenvector of $\mu_1$ . Similar to the proof of previous arguments, construct a vector $\mathbf{x}$ as following:
     
