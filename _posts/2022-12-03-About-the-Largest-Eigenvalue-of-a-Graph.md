@@ -136,7 +136,7 @@ $$
 \mathbf{\frac{x^\intercal A x}{x^\intercal x}} \leq \mu_1
 $$
 
-Since $\mathbf{x} = \mathbf{1} \Rightarrow \mathbf{(Ax)}_{i}$ (the i-th entry of $\mathbf{Ax}$ ) is the degree of vertex $i$, $d_i$ . Thus, $\mathbf{x^\intercal(Ax)} = \sum_{i = 1}^n d_i$ . Moreover, $\mathbf{x^\intercal x} = n$ , so
+Since $\mathbf{x} = \mathbf{1} \Rightarrow$ $ \mathbf{(Ax)}_i $ (the i-th entry of $\mathbf{Ax}$ ) is the degree of vertex $i$, $d_i$ . Thus, $\mathbf{x^\intercal(Ax)} = \sum_{i = 1}^n d_i$ . Moreover, $\mathbf{x^\intercal x} = n$ , so
 
 $$
 \mathbf{\frac{x^\intercal Ax}{x^\intercal x}} = \frac{\sum d_i}{n} = \bar{d} \leq \mu_1 
@@ -181,7 +181,7 @@ If $G$ is a connected weighted graph with adjacency matrix $\mathbf{A}$ and eige
 
 ### Lemma
 
-Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $\mathbf{A}_{ab} > 0$ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)} \mathbf{A}_{av} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{ab} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{av} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)} \mathbf{A}_{av} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
+Suppose that $\mathbf{u}$ is not stricly positive, so there is a vertex $a$ such that $\mathbf{u}(a) = 0$ . Since $G$ is connected, there is a vertex $b$ that is adjacenet to $a$ such that $\mathbf{u}(b) > 0$ and $ \mathbf{A}_{ab} > 0 $ . Since $\mathbf{Au}(a) = \sum_{v \in N(a)} \mathbf{A}_{av} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) = 0$ . However, since the entries of $\mathbf{A}, \mathbf{u}$ is non-negative and $\mathbf{A}_{ab} \mathbf{u}(b) > 0$ , contributing a positive value to $\sum_{v \in N(a)}\mathbf{A}_{av} \mathbf{u}(v)$ , which will make $\sum_{v \in N(a)} \mathbf{A}_{av} \mathbf{u}(v) = \lambda_1 \mathbf{u}(a) > 0$ . Thus, we obtain a contradiction, and the Lemma is proven. 
 
 - The corresponding eigenvector of $\lambda_1$ has strictly positive entries
     
