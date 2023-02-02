@@ -43,14 +43,14 @@ $$
 For any $\mathbf{x} \in \{\mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_i \}$, $\mathbf{x}$ is a linear combination of $\mathbf{u}_1, ..., \mathbf{u}_i$. Thus we can write $\mathbf{x}$ as $\mathbf{x} = c_1\mathbf{u}_1 + ... + c_i\mathbf{u}_i = \mathbf{U}\mathbf{c} ~(c_1, ..., c_i \in \mathbb{R})$, where $\mathbf{U} \in \mathbb{R}^{n \times i}$ has $\mathbf{u}_j$ as its $j$-th column and $\mathbf{c} \in \mathbb{R}^{i \times 1}$ with $c_1, ..., c_i$ as its entries.
 
 $$
-\begin{split} \frac{\mathbf{x}^T \mathbf{A} \mathbf{x}}{\mathbf{x}^T \mathbf{x}} &= \frac{\mathbf{(Uc)^\intercal A (Uc)}}{\mathbf{(Uc)^\intercal(Uc)}} \\ & = \frac{\mathbf{c^ \intercal U^\intercal A Uc}}{\mathbf{c^\intercal U^\intercal U c}} \\ &= \frac{\mathbf{c^\intercal D c}}{\mathbf{c^\intercal c}} ~(\mathbf{U^ \intercal U = I, D} \text{ is a diagonal matrix has } \lambda_1, ..., \lambda_i \text{ as its entries}) \\ &= \frac{\sum_{k = 1}^{i} \lambda_kc_k^2}{\sum_{k = 1}^{i} c_k^2} \leq \frac{\lambda_i (\sum_{k = 1}^{i} c_k^2)}{\sum_{k = 1}^{i} c_k^2} = \lambda_i ~(\lambda_1 \leq ... \leq \lambda_i)                     \end{split}
+\begin{split} 
+  \frac{\mathbf{x}^T \mathbf{A} \mathbf{x}}{\mathbf{x}^T \mathbf{x}} &= \frac{\mathbf{(Uc)^\intercal A (Uc)}}{\mathbf{(Uc)^\intercal(Uc)}} \\ & =             \frac{\mathbf{c^ \intercal U^\intercal A Uc}}{\mathbf{c^\intercal U^\intercal U c}} \\ &= \frac{\mathbf{c^\intercal D c}}{\mathbf{c^\intercal c}} ~ (\mathbf{U^ \intercal U = I, D} \text{ is a diagonal matrix has } \lambda_1, ..., \lambda_i \text{ as its entries}) \\ &= \frac{\sum_{k = 1}^{i}  \lambda_kc_k^2}{\sum_{k = 1}^{i} c_k^2} \leq \frac{\lambda_i (\sum_{k = 1}^{i} c_k^2)}{\sum_{k = 1}^{i} c_k^2} = \lambda_i ~(\lambda_1 \leq ... \leq  \lambda_i)                     
+\end{split}
 $$
 
 Similarly
 
-$$
-\frac{\mathbf{x^\intercal A x}}{\mathbf{x^\intercal x}} \geq \lambda_i ~\text{for } \mathbf{x} \neq 0, x \in \mathbf{x} \in \{\mathbf{u}_1, ..., \mathbf{u}_{i - 1}\}^{\bot} 
-$$
+$$\frac{\mathbf{x^\intercal A x}}{\mathbf{x^\intercal x}} \geq \lambda_i ~\text{for } \mathbf{x} \neq 0, x \in \mathbf{x} \in \{\mathbf{u}_1, ..., \mathbf{u}_{i - 1}\}^{\bot}$$
 
 
 # Cauchy Interlace theorem
