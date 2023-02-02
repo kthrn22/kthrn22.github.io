@@ -30,7 +30,6 @@ $$ \frac{\mathbf{x}^{T}\mathbf{A}\mathbf{x}}{\mathbf{x}^T \mathbf{x}} $$
 
 If $\mathbf{\lambda}$ is an eigenvalue of $\mathbf{A}$  and $\mathbf{u}$ is the corresponding eigenvector then $\frac{\mathbf{u}^T \mathbf{A} \mathbf{u}}{\mathbf{u}^T \mathbf{u}} = \mathbf{\lambda}$ 
 
-
 # Rayleigh - Ritz theorem
 
 If $\mathbf{A}$ is a real symmetric $n \times n$ matrix with eigenvalues $\lambda_1 \leq \lambda_2 \leq ... \leq \lambda_n$ and a set of orthonormal eigenvectors $(\mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_n)$ then 
@@ -41,7 +40,7 @@ $$
 
 ### Proof
 
-For any $\mathbf{x} \in \{\mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_i \}$, $\mathbf{x}$ is a linear combination of $\mathbf{u}_1, ..., \mathbf{u}_i$. Thus we can write $\mathbf{x}$ as $\mathbf{x} = c_1\mathbf{u}_1 + ... + c_i\mathbf{u}_i = \mathbf{U}\mathbf{c} ~(c_1, ..., c_i \in \R)$, where $\mathbf{U} \in \R^{n \times i}$ has $\mathbf{u}_j$ as its $j$-th column and $\mathbf{c} \in \R^{i \times 1}$ with $c_1, ..., c_i$ as its entries.
+For any $\mathbf{x} \in \{\mathbf{u}_1, \mathbf{u}_2, ..., \mathbf{u}_i \}$, $\mathbf{x}$ is a linear combination of $\mathbf{u}_1, ..., \mathbf{u}_i$. Thus we can write $\mathbf{x}$ as $\mathbf{x} = c_1\mathbf{u}_1 + ... + c_i\mathbf{u}_i = \mathbf{U}\mathbf{c} ~(c_1, ..., c_i \in mathbb{R})$, where $\mathbf{U} \in \mathbb{R}^{n \times i}$ has $\mathbf{u}_j$ as its $j$-th column and $\mathbf{c} \in mathbb{R}^{i \times 1}$ with $c_1, ..., c_i$ as its entries.
 
 $$
 \begin{split} \frac{\mathbf{x}^T \mathbf{A} \mathbf{x}}{\mathbf{x}^T \mathbf{x}} &= \frac{\mathbf{(Uc)^\intercal A (Uc)}}{\mathbf{(Uc)^\intercal(Uc)}} \\ & = \frac{\mathbf{c^ \intercal U^\intercal A Uc}}{\mathbf{c^\intercal U^\intercal U c}} \\ &= \frac{\mathbf{c^\intercal D c}}{\mathbf{c^\intercal c}} ~(\mathbf{U^ \intercal U = I, D} \text{ is a diagonal matrix has } \lambda_1, ..., \lambda_i \text{ as its entries}) \\ &= \frac{\sum_{k = 1}^{i} \lambda_kc_k^2}{\sum_{k = 1}^{i} c_k^2} \leq \frac{\lambda_i (\sum_{k = 1}^{i} c_k^2)}{\sum_{k = 1}^{i} c_k^2} = \lambda_i ~(\lambda_1 \leq ... \leq \lambda_i)                     \end{split}
@@ -76,7 +75,7 @@ Let $\mathbf{A}$ be a $n \times n$  real symmetric matrix with eigenvalues $\lam
     
     Let $T = \{\mathbf{b_1, ..., b_i}\} \Rightarrow \dim(T) = i$ and $S = \{\mathbf{P^\intercal a_i, ..., P^\intercal a_n}\} \Rightarrow \dim(S) = n - i + 1$ (since $(\mathbf{P^\intercal a_i, ..., P^\intercal a_n})$ is orthogonal). 
     
-    Suppose that $T \cap S =\emptyset$. Thus, $\dim(T \cup S) = (i) + (n - i + 1) = n + 1$, but $\dim(T \cup S) \leq m$ (since each element is a $m \times 1$ vector) and hence we have a contradiction. Therefore, $T \cap S \neq \emptyset$, and we can choose a non-zero vector $\mathbf{q} \in T \cap S (q \in \R^{m \times 1})$.
+    Suppose that $T \cap S =\emptyset$. Thus, $\dim(T \cup S) = (i) + (n - i + 1) = n + 1$, but $\dim(T \cup S) \leq m$ (since each element is a $m \times 1$ vector) and hence we have a contradiction. Therefore, $T \cap S \neq \emptyset$, and we can choose a non-zero vector $\mathbf{q} \in T \cap S (q \in \mathbb{R}^{m \times 1})$.
     
     $\mathbf{q} \in T \cap S \Rightarrow \mathbf{q} \in \{\mathbf{b_1, ..., b_i}\}$. By Rayleigh-Ritz theorem, we have
     
@@ -109,7 +108,7 @@ Let $\mathbf{A}$ be a $n \times n$  real symmetric matrix with eigenvalues $\lam
 
 ## **Corollary**
 
-If a graph $G$ with adjacency matrix $\mathbf{A} \in \R^{n \times n}$ and eigenvalues $\lambda_1 \geq...\geq \lambda_n$, $H$ is $G$’s induced subgraph with adjacency matrix $\mathbf{B} \in \R^{m \times m}$ and eigenvalues $\mu_1 \geq ... \geq \mu_m$ ($m \leq n$) then
+If a graph $G$ with adjacency matrix $\mathbf{A} \in \mathbb{R}^{n \times n}$ and eigenvalues $\lambda_1 \geq...\geq \lambda_n$, $H$ is $G$’s induced subgraph with adjacency matrix $\mathbf{B} \in \mathbb{R}^{m \times m}$ and eigenvalues $\mu_1 \geq ... \geq \mu_m$ ($m \leq n$) then
 
 $$
 \lambda_{n-m+i} \leq \mu_i \leq \lambda_{i}
@@ -117,7 +116,7 @@ $$
 
 ### Proof
 
-Since $H$ is $G$’s induced matrix, so $\mathbf{B}$ is a principal sub-matrix of $\mathbf{A}$, .i.e $\mathbf{B}$ can be obtained by deleting the same row and column of $\mathbf{A}$. Specifically if $\mathbf{P} \in \R^{m \times n}$  has entries is $0$ or $1$ and each row has exactly one $1$ entry, each column has at most one $1$ entry. Then $\mathbf{B = P^\intercal AP}$ and $\mathbf{P^\intercal P = I}$ . Therefore, the corollary can be derived from the Interlacing Theorem. 
+Since $H$ is $G$’s induced matrix, so $\mathbf{B}$ is a principal sub-matrix of $\mathbf{A}$, .i.e $\mathbf{B}$ can be obtained by deleting the same row and column of $\mathbf{A}$. Specifically if $\mathbf{P} \in \mathbb{R}^{m \times n}$  has entries is $0$ or $1$ and each row has exactly one $1$ entry, each column has at most one $1$ entry. Then $\mathbf{B = P^\intercal AP}$ and $\mathbf{P^\intercal P = I}$ . Therefore, the corollary can be derived from the Interlacing Theorem. 
 
 # Largest Eigenvalue
 
@@ -129,7 +128,7 @@ $$
 
 ### Proof
 
-Let $\mathbf{x} = \mathbf{1}, \mathbf{x} \in \R^{n \times 1}$ ($x$ is all-one vector), and $\mathbf{A}$ is the adjacency matrix of $G$ ($\mathbf{A} \in \R^{n \times n }$). Thus, from Rayleigh - Ritz Theorem
+Let $\mathbf{x} = \mathbf{1}, \mathbf{x} \in \mathbb{R}^{n \times 1}$ ($x$ is all-one vector), and $\mathbf{A}$ is the adjacency matrix of $G$ ($\mathbf{A} \in \mathbb{R}^{n \times n }$). Thus, from Rayleigh - Ritz Theorem
 
 $$
 \mathbf{\frac{x^\intercal A x}{x^\intercal x}} \leq \mu_1
