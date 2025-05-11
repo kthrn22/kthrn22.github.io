@@ -55,3 +55,5 @@ exclude:
   - LICENSE
   - minimal-light.gemspec
   - html_source_file/
+
+remote_theme: yaoyao-liu/minimal-light
