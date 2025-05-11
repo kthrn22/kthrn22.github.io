@@ -10,4 +10,4 @@ I am a Ph.D. student at ...
 
 ## News
 
-## Selected Publications
+## Selected Publications ([Full List](https://scholar.google.com/citations?user=4plxMY8AAAAJ&hl=en))
