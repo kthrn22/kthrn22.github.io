@@ -6,31 +6,176 @@
     <meta name="author" content="Katherine Tieu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
     <head>
 <style>
-a:link {
-  color: rgb(149, 204, 246); /* Unvisited link color */
-  text-decoration: none; /* Removes the default underline */
+
+body {
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  /* padding-top: 60px; */
 }
 
-a:visited {
-  color: rgb(149, 204, 246); /* Visited link color */
+.name {
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;;
+  margin-top: 60px;
+}
+
+a:link {
+  text-decoration: none;
 }
 
 a:hover {
+  text-decoration: underline;
+}
+
+.topnav {
+  overflow: hidden;
+  padding-left: 20px;
+  position:fixed;
+  width: 100%;
+  height: 60px;
+}
+
+.topnav a {
+  float: left;
+  /* position: fixed; */
+  margin-left: 10px;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#theme-toggle {
+    float: left;
+    position: fixed;
+    top: 0px;
+    right: 60px;
+    padding: 14px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+body.dark-mode {
+  background-color: rgb(40, 50, 55);
+  color: aliceblue;
+}
+
+body.dark-mode .name {
+  color: aliceblue;  
+}
+
+body.dark-mode a:link {
+  color: rgb(149, 204, 246); 
+}
+
+body.dark-mode a:visited {
+  color: rgb(149, 204, 246); 
+}
+
+body.dark-mode a:hover {
+  color: rgb(238, 183, 141); 
+}
+
+body.dark-mode a:active {
+  color: rgb(238, 183, 141);
+}
+
+body.dark-mode .topnav {
+  background-color: rgb(40, 50, 55);
+}
+
+body.dark-mode .topnav a {
+  color: aliceblue;
+}
+
+body.dark-mode .topnav a:hover {
+  background-color: rgb(40, 50, 55);
+  color: rgb(238, 183, 141);
+}
+
+body.dark-mode .topnav a.active {
+  background-color: rgb(40, 50, 55);
+  color: aliceblue;
+}
+
+body.light-mode {
+  background-color: aliceblue;
+  color: rgb(40, 50, 55);
+}
+
+body.light-mode .name {
+  color: rgb(40, 50, 55); 
+}
+
+body.light-mode a:link {
+  color: rgb(21, 138, 222); /* Unvisited link color */
+  text-decoration: none; /* Removes the default underline */
+}
+
+body.light-mode a:visited {
+  color: rgb(21, 138, 222);  /* Visited link color */
+}
+
+body.light-mode a:hover {
   color: rgb(238, 183, 141); /* Color when mouse is over the link */
   text-decoration: underline; /* Adds underline on hover */
 }
 
-a:active {
+body.light-mode a:active {
   color: rgb(238, 183, 141); /* Color the moment the link is clicked */
+}
+
+body.light-mode .topnav {
+  background-color: aliceblue;
+}
+
+body.light-mode .topnav a {
+  color: rgb(40, 50, 55);
+}
+
+body.light-mode .topnav a:hover {
+  background-color: aliceblue;
+  color: rgb(238, 183, 141);
+}
+
+body.light-mode .topnav a.active {
+  background-color: aliceblue;
+  color: rgb(40, 50, 55);
+}
+
+body.dark-mode #theme-toggle {
+    background-color: rgb(40, 50, 55);
+    /* color: aliceblue; */
+}
+
+body.light-mode #theme-toggle {
+    background-color: aliceblue;
+    /* color: rgb(40, 50, 55); */
 }
 </style>
 </head>
-  </head>
+</head>
 
-  <body style="background-color:rgb(40, 50, 55);color: aliceblue; font-size: 18px; font-family: 'Times New Roman', Times, serif;">
+  <body class="dark-mode" style="font-size: 20px; font-family: 'Times New Roman', Times, serif;">
+    <div class="topnav">
+        <!-- <button id="theme-toggle">Light Mode</button> -->
+    <button id="theme-toggle">☀️</button>
+      <a class="active" href="#about">About</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#service">Service</a>
+    </div>
+
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -41,7 +186,8 @@ a:active {
                   Katherine Tieu
                 </p>
                 <p>
-		I'm a first-year CS PhD of <a href=https://www.idea-isail.com>iSAIL Lab</a> <img src="images/iSail_logo.svg" width="30" style="vertical-align:bottom;"/> at University of Illinois Urbana-Champaign (UIUC), advised by Prof. <a href=https://www.hejingrui.org>Jingrui He</a>.
+		I'm a first-year CS PhD of <a href=https://www.idea-isail.com>iSAIL Lab</a>
+    <img src="images/iSail_logo.svg" width="30" style="vertical-align: -6px; margin-right:0px; margin-left: -4.5px;"/>at University of Illinois Urbana-Champaign (UIUC)<img src="images/uiuc_logo.svg" width="24" style="vertical-align: -6px; margin-right:-4px; margin-left: -1px;"/>, advised by Prof. <a href=https://www.hejingrui.org>Jingrui He</a>.
 		<br>
 		<br>
 		I am interested in <b>(1) LLM post-training</b>, specifically in Alignment and Efficiency; <b>(2) Agentic AI systems</b>, particularly in designing Multi-agent Systems; and <b>(3) Graph Machine Learning</b>, where I had previously worked on temporal graphs.
@@ -49,7 +195,7 @@ a:active {
                 <p style="text-align:center">
                   <a href="mailto:kt42@illinois.edu">Email</a> &nbsp;/&nbsp;
                   <a href="https://scholar.google.com/citations?user=4plxMY8AAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://x.com/kthrn_uiuc">X (formerly Twitter)</a> &nbsp;/&nbsp;
+                  <a href="https://x.com/kthrn_uiuc">X</a> &nbsp;/&nbsp;
 					<a href="https://www.linkedin.com/in/katherine-tieu-ab27b4201/">LinkedIn</a> &nbsp;/&nbsp;
                   <a href="https://github.com/kthrn22">Github</a>
                 </p>
@@ -66,7 +212,7 @@ a:active {
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-				<h2>Selected Publications</h2>
+				<h2 id="publications">Selected Publications (<a href="https://scholar.google.com/citations?user=4plxMY8AAAAJ&hl=en">Full list</a>)</h2>
                 <p>
 				(* denotes equal contribution)
                 </p>
@@ -151,10 +297,10 @@ a:active {
 	<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-				<h2>Academic Service</h2>
+				<h2 id="service">Academic Service</h2>
 				  <p>Conference PC Member:</p>
 					<ul>
-					  <li>2025: <a href=https://neurips.cc>NeurIPS</a>, <a href=https://logconference.org>LOG</a></li>
+					  <li>2025: <a href=https://neurips.cc>NeurIPS</a>, <a href=https://logconference.org>LoG</a></li>
 					  <li>2023: <a href=https://bigdataieee.org>IEEE BigData</a></li>
 					</ul>
               </td>
@@ -180,5 +326,32 @@ a:active {
         </td>
       </tr>
     </table>
+<script>
+  const btn = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  btn.onclick = () => {
+    body.classList.toggle("light-mode");
+    body.classList.toggle("dark-mode");
+
+    // Optional: update button text
+    btn.innerText = body.classList.contains("light-mode")
+      ? "🌙"
+      : "☀️";
+  };
+
+    // Select all links
+  const links = document.querySelectorAll('a');
+
+  links.forEach(link => {
+    const href = link.getAttribute('href');
+
+    // Only add target="_blank" if href is external (starts with http or https)
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+</script>
   </body>
 </html>
