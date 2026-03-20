@@ -5,171 +5,98 @@
     <title>Katherine Tieu</title>
     <meta name="author" content="Katherine Tieu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/flying_capybara.jpeg" type="image/x-icon">
-    <!-- <link rel="stylesheet" type="text/css" href="stylesheet.css"> -->
-    <head>
-<style>
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+    <style>
+      /* ICEBERG LIGHT THEME */
+      body {
+        margin: 0;
+        padding-top: 60px;
+        /* Iceberg Background & Foreground */
+        background-color: #e8e9ec; 
+        color: #33374c; 
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+      }
 
-body {
-  margin: 0;
-  font-family: 'Times New Roman', Times, serif;
-  /* padding-top: 60px; */
-}
+      h2[id] {
+        scroll-margin-top: 70px; 
+      }
 
-.name {
-  font-size: 40px;
-  font-weight: bold;
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;;
-  margin-top: 60px;
-}
+      a:link {
+        color: #2d539e; /* Iceberg Blue (Statement/Type) */
+        text-decoration: none;
+      }
 
-a:link {
-  text-decoration: none;
-}
+      a:visited {
+        color: #2d539e;
+      }
 
-a:hover {
-  text-decoration: underline;
-}
+      a:hover {
+        color: #e4aa80; /* Iceberg Orange (Special) */
+        /* text-decoration: underline; */
+      }
 
-.topnav {
-  overflow: hidden;
-  padding-left: 20px;
-  position:fixed;
-  width: 100%;
-  height: 60px;
-}
+      a:active {
+        color: #e4aa80;
+      }
 
-.topnav a {
-  float: left;
-  /* position: fixed; */
-  margin-left: 10px;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 18px;
-}
+      .topnav {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        background-color: #e8e9ec; 
+        padding-left: 20px;
+      }
 
-#theme-toggle {
-    float: left;
-    position: fixed;
-    top: 0px;
-    right: 60px;
-    padding: 14px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    text-align: center;
-    vertical-align: middle;
-}
+      .topnav a {
+        float: left;
+        color: #33374c; /* Normal Text */
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 18px;
+      }
 
-body.dark-mode {
-  background-color: rgb(40, 50, 55);
-  color: aliceblue;
-}
+      .topnav a:hover {
+        background-color: #e8e9ec; /* Selection Color */
+        color: #2d539e;
+      }
 
-body.dark-mode .name {
-  color: aliceblue;  
-}
+      .topnav a.active {
+        background-color: #e8e9ec; /* blend with body */
+        color: #2d539e; /* Blue highlight */
+        font-weight: bold;
+      }
 
-body.dark-mode a:link {
-  color: rgb(149, 204, 246); 
-}
+      .name {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: #33374c; /* Dark Ink */
+        font-family: 'Times New Roman', Times, serif;
+        margin-top: 0px;
+      }
+      
+      /* Optional: Make paper titles pop a bit more */
+      .papertitle {
+        font-size: 23px;
+        font-weight: bold;
+        color: #2d539e;
+      }
 
-body.dark-mode a:visited {
-  color: rgb(149, 204, 246); 
-}
+      .company {
+        font-size: 23px;
+        font-weight: bold;
+        color: #2d539e;
+      }
+    </style>
+  </head>
 
-body.dark-mode a:hover {
-  color: rgb(238, 183, 141); 
-}
-
-body.dark-mode a:active {
-  color: rgb(238, 183, 141);
-}
-
-body.dark-mode .topnav {
-  background-color: rgb(40, 50, 55);
-}
-
-body.dark-mode .topnav a {
-  color: aliceblue;
-}
-
-body.dark-mode .topnav a:hover {
-  background-color: rgb(40, 50, 55);
-  color: rgb(238, 183, 141);
-}
-
-body.dark-mode .topnav a.active {
-  background-color: rgb(40, 50, 55);
-  color: aliceblue;
-}
-
-body.light-mode {
-  background-color: aliceblue;
-  color: rgb(40, 50, 55);
-}
-
-body.light-mode .name {
-  color: rgb(40, 50, 55); 
-}
-
-body.light-mode a:link {
-  color: rgb(21, 138, 222); /* Unvisited link color */
-  text-decoration: none; /* Removes the default underline */
-}
-
-body.light-mode a:visited {
-  color: rgb(21, 138, 222);  /* Visited link color */
-}
-
-body.light-mode a:hover {
-  color: rgb(238, 183, 141); /* Color when mouse is over the link */
-  text-decoration: underline; /* Adds underline on hover */
-}
-
-body.light-mode a:active {
-  color: rgb(238, 183, 141); /* Color the moment the link is clicked */
-}
-
-body.light-mode .topnav {
-  background-color: aliceblue;
-}
-
-body.light-mode .topnav a {
-  color: rgb(40, 50, 55);
-}
-
-body.light-mode .topnav a:hover {
-  background-color: aliceblue;
-  color: rgb(238, 183, 141);
-}
-
-body.light-mode .topnav a.active {
-  background-color: aliceblue;
-  color: rgb(40, 50, 55);
-}
-
-body.dark-mode #theme-toggle {
-    background-color: rgb(40, 50, 55);
-    /* color: aliceblue; */
-}
-
-body.light-mode #theme-toggle {
-    background-color: aliceblue;
-    /* color: rgb(40, 50, 55); */
-}
-</style>
-</head>
-</head>
-
-  <body class="dark-mode" style="font-size: 20px; font-family: 'Times New Roman', Times, serif;">
+  <body>
     <div class="topnav">
-        <!-- <button id="theme-toggle">Light Mode</button> -->
-    <button id="theme-toggle">☀️</button>
       <a class="active" href=>About</a>
       <a href="#publications">Publications</a>
       <a href="#service">Service</a>
@@ -185,72 +112,70 @@ body.light-mode #theme-toggle {
                   Katherine Tieu
                 </p>
                 <p>
-		I'm a first-year CS PhD of <a href=https://www.idea-isail.com>iSAIL Lab</a>
+    I'm a first-year CS PhD of <a href=https://www.idea-isail.com>iSAIL Lab</a>
     <img src="images/iSail_logo.svg" width="30" style="vertical-align: -6px; margin-right:0px; margin-left: -4.5px;"/>at University of Illinois Urbana-Champaign (UIUC)<img src="images/uiuc_logo.svg" width="24" style="vertical-align: -6px; margin-right:-4px; margin-left: -1px;"/>, advised by Prof. <a href=https://www.hejingrui.org>Jingrui He</a>.
-		<br>
-		<br>
-		I am interested in <b>(1) LLM post-training</b>, specifically in Alignment and Efficiency; <b>(2) Agentic AI systems</b>, particularly in designing Multi-agent Systems; and <b>(3) Graph Machine Learning</b>, where I had previously worked on temporal graphs.
+    <br>
+    <br>
+    I am interested in <b>(1) LLM post-training</b>, specifically in Alignment and Efficiency; <b>(2) Agentic AI systems</b>, particularly in designing Multi-agent Systems; and <b>(3) Graph Machine Learning</b>, where I had previously worked on temporal graphs.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:kt42@illinois.edu">Email</a> &nbsp;/&nbsp;
                   <a href="https://scholar.google.com/citations?user=4plxMY8AAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
                   <a href="https://x.com/kthrn_uiuc">X</a> &nbsp;/&nbsp;
-					<a href="https://www.linkedin.com/in/katherine-tieu-ab27b4201/">LinkedIn</a> &nbsp;/&nbsp;
+          <a href="https://www.linkedin.com/in/katherine-tieu-ab27b4201/">LinkedIn</a> &nbsp;/&nbsp;
                   <a href="https://github.com/kthrn22">Github</a>
                 </p>
               </td>
-			<td style="padding:2.5%;width:25%;max-width:37%">
-			  <img
-			    style="width:100%;max-width:100%;object-fit:cover;border-radius:50%;"
-			    alt="profile photo"
-			    src="images/KatherineTieu.jpg"
-			  >
-			</td>
+      <td style="padding:2.5%;width:25%;max-width:37%">
+        <img
+          style="width:100%;max-width:100%;object-fit:cover;border-radius:50%;"
+          alt="profile photo"
+          src="images/KatherineTieu.jpg"
+        >
+      </td>
             </tr>
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-				<h2 id="publications">Selected Publications (<a href="https://scholar.google.com/citations?user=4plxMY8AAAAJ&hl=en">Full list</a>)</h2>
+        <h2 id="publications" style="color: #33374c;">Selected Publications (<a href="">Full list</a>)</h2>
                 <p>
-				(* denotes equal contribution)
+        (* denotes equal contribution)
                 </p>
               </td>
             </tr>
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:40px 10px;border-collapse:separate"><tbody>
     <tr>
-	<!-- <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one">
-              <img src="images/icml_2025.png" width="200" style="margin-left:-25px; margin-top:35px;">
-            </div>
-    </td> -->
-      <td style="padding:10px;width:20%;vertical-align:middle">
+  <td style="padding:10px;width:20%;vertical-align:middle">
         <a href="https://arxiv.org/pdf/2506.08309">
           <span class="papertitle">Learnable Spatial-Temporal Positional Encoding for Link Prediction</span>
         </a>
         <br>
-		<strong>Katherine Tieu</strong>*,
+    <strong>Katherine Tieu</strong>*,
         <a href="https://dongqifu.github.io">Dongqi Fu</a>*
         <a href="https://www.zihao.website">Zihao Li</a>,
         <a href="http://rmaciejewski.faculty.asu.edu">Ross Maciejewski</a>,
         <a href="https://www.hejingrui.org">Jingrui He</a>
         <br>
-        <em>ICML</em>, 2025
+        <!-- <strong><em style="color: #5b518e;">ICML</em></strong>, <a style ="color: #5b518e;">2025</a> -->
+        <div style="
+          border: 2px solid #5b518e; 
+          padding: 1.5px 4px; 
+          display: inline-block; 
+          text-align: center; 
+          border-radius: 8px;">
+          <strong><em style="color: #5b518e;">ICML</em></strong>, <a style="color: #5b518e;">2025</a>
+        </div>
         <br>
-		<a href=https://arxiv.org/pdf/2506.08309>pdf</a>
-		/
+    <a href=https://arxiv.org/pdf/2506.08309>pdf</a>
+    /
         <a href="https://github.com/kthrn22/L-STEP">code</a>
         <p></p>
       </td>
     </tr>
-	<tr>
-	<!-- <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one">
-              <img src='images/aistats_2025.png' width="200" style="margin-left:-25px; margin-top:40px;">
-            </div>
-    </td> -->
-      <td style="padding:10px;width:20%;vertical-align:middle">
+  <tr>
+  <td style="padding:10px;width:20%;vertical-align:middle">
         <a href="https://arxiv.org/pdf/2505.24178">
           <span class="papertitle">Invariant Link Selector for Spatial-Temporal Out-of-Distribution Problem</span>
         </a>
@@ -260,21 +185,23 @@ body.light-mode #theme-toggle {
         <a href="https://junwu6.github.io">Jun Wu</a>,
         <a href="https://www.hejingrui.org">Jingrui He</a>
         <br>
-        <em>AISTATS</em>, 2025
+        <div style="
+          border: 2px solid #5b518e; 
+          padding: 1.5px 4px; 
+          display: inline-block; 
+          text-align: center; 
+          border-radius: 8px;">
+          <strong><em style="color: #5b518e;">AISTATS</em></strong>, <a style ="color: #5b518e;">2025</a>
+        </div>
         <br>
         <a href=https://arxiv.org/pdf/2505.24178>pdf</a>
-		/
+    /
         <a href="https://github.com/kthrn22/OOD-Linker">code</a>
         <p></p>
       </td>
     </tr>
-	<tr>
-	<!-- <td style="padding:16px;width:20%;vertical-align:middle">
-            <div class="one">
-              <img src='images/neurips_2024.png' width="200" style="margin-left:-25px; margin-top:25px;">
-            </div>
-    </td> -->
-      <td style="padding:10px;width:20%;vertical-align:middle">
+  <tr>
+  <td style="padding:10px;width:20%;vertical-align:middle">
         <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/abd3c6b90e474ec50a52c446926b00be-Paper-Conference.pdf">
           <span class="papertitle">Temporal Graph Neural Tangent Kernel with Graphon-Guaranteed</span>
         </a>
@@ -285,38 +212,45 @@ body.light-mode #theme-toggle {
         <a href="https://scholar.google.com/citations?user=O0MjUvcAAAAJ&hl=en">Hendrik Hamann</a>,
         <a href="https://www.hejingrui.org">Jingrui He</a>
         <br>
-        <em>NeurIPS</em>, 2024
+        <div style="
+          border: 2px solid #5b518e; 
+          padding: 1.5px 4px; 
+          display: inline-block; 
+          text-align: center; 
+          border-radius: 8px;">
+          <strong><em style="color: #5b518e;">NeurIPS</em></strong>, <a style ="color: #5b518e;">2024</a>
+        </div>
         <br>
         <a href=https://proceedings.neurips.cc/paper_files/paper/2024/file/abd3c6b90e474ec50a52c446926b00be-Paper-Conference.pdf>pdf</a>
-		/
+    /
         <a href="https://github.com/kthrn22/TempGNTK">code</a>
         <p></p>
       </td>
     </tr>
-	<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+  <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
               <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
-				<h2 id="service">Academic Service</h2>
-				  <p>Conference PC Member:</p>
-					<ul>
-					  <li>2025: <a href=https://neurips.cc>NeurIPS</a>, <a href=https://logconference.org>LoG</a></li>
-					  <li>2023: <a href=https://bigdataieee.org>IEEE BigData</a></li>
-					</ul>
+        <h2 id="service" style="color: #33374c;">Academic Service</h2>
+          <p>Conference PC Member:</p>
+          <ul>
+            <li>2025: <a href=https://neurips.cc>NeurIPS</a>, <a href=https://logconference.org>LOG</a></li>
+            <li>2023: <a href=https://bigdataieee.org>IEEE BigData</a></li>
+          </ul>
               </td>
             </tr>
         </tbody></table>
-		<div style="width: 25%; margin: 0 auto; text-align: center;">
-		  <script type="text/javascript" id="mapmyvisitors"
-		    src="//mapmyvisitors.com/map.js?d=fFE_3oqOUJiPoN5kSqWnn7LRbJabUtHpq7P_D4kbe_w&cl=ffffff&w=a">
-		  </script>
-		</div>
+    <div style="width: 25%; margin: 0 auto; text-align: center;">
+      <script type="text/javascript" id="mapmyvisitors"
+        src="//mapmyvisitors.com/map.js?d=fFE_3oqOUJiPoN5kSqWnn7LRbJabUtHpq7P_D4kbe_w&cl=ffffff&w=a">
+      </script>
+    </div>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
           <tbody>
             <tr>
               <td style="padding:0px">
                 <br>
-                <p style="text-align:right;font-size:small;">
-                  Template courtesy: <a href="https://jonbarron.info/">Jon Barron</a>.
+                <p style="text-align:right;font-size:small; color: #8389a3;">
+                  Template courtesy: <a href="https://jonbarron.info/">Jon Barron</a>. Theme courtesy: <a href="https://github.com/cocopon/iceberg.vim">cocopon</a>.
                 </p>
               </td>
             </tr>
@@ -325,32 +259,5 @@ body.light-mode #theme-toggle {
         </td>
       </tr>
     </table>
-<script>
-  const btn = document.getElementById("theme-toggle");
-  const body = document.body;
-
-  btn.onclick = () => {
-    body.classList.toggle("light-mode");
-    body.classList.toggle("dark-mode");
-
-    // Optional: update button text
-    btn.innerText = body.classList.contains("light-mode")
-      ? "🌙"
-      : "☀️";
-  };
-
-    // Select all links
-  const links = document.querySelectorAll('a');
-
-  links.forEach(link => {
-    const href = link.getAttribute('href');
-
-    // Only add target="_blank" if href is external (starts with http or https)
-    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-</script>
   </body>
 </html>
